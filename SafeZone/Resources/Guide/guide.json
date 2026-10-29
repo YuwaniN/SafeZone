@@ -1,0 +1,444 @@
+{
+  "topics": [
+    {
+      "id": "flood-safety",
+      "title": "Flood Safety",
+      "subtitle": "Stay safe before, during and after flooding",
+      "iconName": "water.waves",
+      "accentHex": "#2563EB",
+      "badge": "Essential",
+      "sections": [
+        {
+          "id": "flood-1",
+          "title": "Move to higher ground",
+          "body": "If flooding is imminent, move to the highest point in your building or evacuate to elevated terrain. Avoid basements and underground car parks.",
+          "steps": [
+            "Take your emergency kit, phone and charger.",
+            "Switch off electricity and gas if it is safe to do so.",
+            "Help children, older people and neighbours who need assistance.",
+            "Follow official evacuation routes from the DMC."
+          ]
+        },
+        {
+          "id": "flood-2",
+          "title": "Never cross floodwater",
+          "body": "Just 15 centimetres of moving water can knock an adult down, and 30 centimetres can float a small car. Floodwater may hide open drains, debris and live electrical wires.",
+          "steps": [
+            "Turn around and choose a higher route.",
+            "Do not swim, walk or drive through water.",
+            "Keep away from riverbanks, canals and storm drains.",
+            "If your vehicle stalls in water, abandon it and move to higher ground."
+          ]
+        },
+        {
+          "id": "flood-3",
+          "title": "Inside your home",
+          "body": "Move valuables, documents and medicines above expected flood level. Fill clean containers with drinking water in case supply is cut.",
+          "steps": [
+            "Unplug appliances and move them higher.",
+            "Close doors and place sandbags or towels at low entry points.",
+            "Keep listening to official alerts and local radio.",
+            "Do not touch electrical switches while standing in water."
+          ]
+        },
+        {
+          "id": "flood-4",
+          "title": "After the water recedes",
+          "body": "Floodwater can be contaminated with sewage and chemicals. Clean and disinfect everything that was touched by floodwater and watch for structural damage.",
+          "steps": [
+            "Wait for authorities to say it is safe to return.",
+            "Wear boots and gloves while cleaning.",
+            "Discard food that touched floodwater.",
+            "Photograph damage for insurance and support applications."
+          ]
+        }
+      ],
+      "contacts": [
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f01",
+          "name": "Disaster Management Centre",
+          "number": "117",
+          "subtitle": "Emergency operations and evacuation guidance",
+          "iconName": "exclamationmark.shield.fill"
+        },
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f02",
+          "name": "Suwa Seriya Ambulance",
+          "number": "1990",
+          "subtitle": "Free pre-hospital emergency care",
+          "iconName": "cross.case.fill"
+        }
+      ]
+    },
+    {
+      "id": "landslide-safety",
+      "title": "Landslide Safety",
+      "subtitle": "Recognise warning signs in hilly terrain",
+      "iconName": "mountain.2.fill",
+      "accentHex": "#B45309",
+      "badge": "High risk",
+      "sections": [
+        {
+          "id": "landslide-1",
+          "title": "Warning signs",
+          "body": "Watch for new cracks in the ground, doors or windows that stick, tilting trees or utility poles, and muddy water emerging from slopes.",
+          "steps": [
+            "Listen for rumbling or cracking sounds.",
+            "Check for sudden changes in springs or streams.",
+            "Report new cracks or slope movement to local authorities.",
+            "Be extra alert during and after heavy rain."
+          ]
+        },
+        {
+          "id": "landslide-2",
+          "title": "Evacuate early",
+          "body": "If you suspect a landslide, leave immediately. Do not wait for official confirmation if you see or hear active slope movement.",
+          "steps": [
+            "Move away from the slope and out of the path of debris.",
+            "Avoid valleys, channels and the base of hills.",
+            "Warn neighbours as you leave.",
+            "Call 117 and report your location."
+          ]
+        },
+        {
+          "id": "landslide-3",
+          "title": "If escape is not possible",
+          "body": "Move to the upper floor of a sturdy building and stay away from outside walls. Protect your head with a helmet, cushion or thick clothing.",
+          "steps": [
+            "Curl into a tight ball and protect your head.",
+            "Stay under a strong table or interior wall.",
+            "Do not use lifts.",
+            "Stay put until it is safe to move."
+          ]
+        }
+      ],
+      "contacts": [
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f03",
+          "name": "Disaster Management Centre",
+          "number": "117",
+          "subtitle": "Landslide alerts and evacuation support",
+          "iconName": "exclamationmark.shield.fill"
+        }
+      ]
+    },
+    {
+      "id": "cyclone-storms",
+      "title": "Cyclone & Storms",
+      "subtitle": "Prepare for high winds and heavy rain",
+      "iconName": "tornado",
+      "accentHex": "#0E7490",
+      "badge": "Seasonal",
+      "sections": [
+        {
+          "id": "storm-1",
+          "title": "Before the storm",
+          "body": "Secure loose outdoor items, trim overhanging branches and charge phones and power banks. Store drinking water and non-perishable food.",
+          "steps": [
+            "Bring in bins, furniture and garden equipment.",
+            "Close and reinforce windows and doors.",
+            "Charge devices and keep a torch ready.",
+            "Know the nearest safe shelter."
+          ]
+        },
+        {
+          "id": "storm-2",
+          "title": "During the storm",
+          "body": "Stay indoors and away from windows. Avoid using wired electrical equipment and do not go outside during the calm eye of a cyclone.",
+          "steps": [
+            "Move to an interior room on the lowest floor.",
+            "Stay away from glass and external walls.",
+            "Do not go outside until authorities say it is safe.",
+            "Keep listening to official updates."
+          ]
+        },
+        {
+          "id": "storm-3",
+          "title": "After the storm",
+          "body": "Watch for downed power lines, weakened trees and flooded roads. Avoid damaged buildings and report hazards to authorities.",
+          "steps": [
+            "Treat every power line as live.",
+            "Do not enter damaged structures.",
+            "Boil or purify drinking water if supply is uncertain.",
+            "Help neighbours and share verified information."
+          ]
+        }
+      ],
+      "contacts": [
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f04",
+          "name": "Department of Meteorology",
+          "number": "117",
+          "subtitle": "Weather warnings through DMC",
+          "iconName": "cloud.bolt.rain.fill"
+        },
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f05",
+          "name": "Fire & Rescue Service",
+          "number": "110",
+          "subtitle": "Storm damage and rescue support",
+          "iconName": "flame.fill"
+        }
+      ]
+    },
+    {
+      "id": "tsunami-safety",
+      "title": "Tsunami Safety",
+      "subtitle": "Act fast when the coast is at risk",
+      "iconName": "water.waves.and.arrow.up",
+      "accentHex": "#0369A1",
+      "badge": "Coastal",
+      "sections": [
+        {
+          "id": "tsunami-1",
+          "title": "Natural warning signs",
+          "body": "A strong earthquake near the coast, a sudden rise or fall in sea level, or a loud ocean roar can be a natural tsunami warning. Do not wait for an official alert.",
+          "steps": [
+            "Move inland and to higher ground immediately.",
+            "Leave beaches, harbours and river mouths.",
+            "Do not return to the coast to watch.",
+            "Warn others as you move."
+          ]
+        },
+        {
+          "id": "tsunami-2",
+          "title": "Reach high ground",
+          "body": "Go to a designated evacuation site at least 20 metres above sea level or 2 kilometres inland. If you cannot leave, move to the upper floor of a reinforced building.",
+          "steps": [
+            "Follow tsunami evacuation signs.",
+            "Avoid bridges and coastal roads.",
+            "Stay there until officials give the all-clear.",
+            "Keep your phone and emergency kit with you."
+          ]
+        },
+        {
+          "id": "tsunami-3",
+          "title": "After the wave",
+          "body": "Tsunami waves can continue for hours and later waves may be larger. Only return when authorities confirm it is safe.",
+          "steps": [
+            "Stay away from flooded and damaged areas.",
+            "Watch for debris, live wires and contaminated water.",
+            "Check on vulnerable neighbours.",
+            "Follow official information channels."
+          ]
+        }
+      ],
+      "contacts": [
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f06",
+          "name": "Disaster Management Centre",
+          "number": "117",
+          "subtitle": "Tsunami alerts and evacuation guidance",
+          "iconName": "exclamationmark.shield.fill"
+        },
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f07",
+          "name": "Coast Guard",
+          "number": "118",
+          "subtitle": "Maritime and coastal rescue",
+          "iconName": "water.waves"
+        }
+      ]
+    },
+    {
+      "id": "fire-safety",
+      "title": "Fire Safety",
+      "subtitle": "Escape safely and reduce smoke exposure",
+      "iconName": "flame.fill",
+      "accentHex": "#DC2626",
+      "badge": "Essential",
+      "sections": [
+        {
+          "id": "fire-1",
+          "title": "If a fire starts",
+          "body": "Raise the alarm, get everyone out and call 110. Never re-enter a burning building for possessions.",
+          "steps": [
+            "Shout to alert others.",
+            "Leave by the nearest safe exit.",
+            "Close doors behind you to slow the fire.",
+            "Call 110 from a safe place."
+          ]
+        },
+        {
+          "id": "fire-2",
+          "title": "Escaping smoke",
+          "body": "Smoke is more dangerous than flames. Stay low, cover your nose and mouth with a cloth and feel doors before opening them.",
+          "steps": [
+            "Crawl below the smoke layer.",
+            "Do not open a hot door.",
+            "Use stairs, never a lift.",
+            "If trapped, seal gaps and signal from a window."
+          ]
+        },
+        {
+          "id": "fire-3",
+          "title": "Clothing on fire",
+          "body": "Stop, drop and roll. Smother the flames with a heavy blanket if available and cool burns with running water.",
+          "steps": [
+            "Stop moving and drop to the ground.",
+            "Roll to smother the flames.",
+            "Remove smouldering clothing carefully.",
+            "Seek medical help for burns."
+          ]
+        }
+      ],
+      "contacts": [
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f08",
+          "name": "Fire & Rescue Service",
+          "number": "110",
+          "subtitle": "Colombo Fire Brigade",
+          "iconName": "flame.fill"
+        },
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f09",
+          "name": "Suwa Seriya Ambulance",
+          "number": "1990",
+          "subtitle": "Burn and injury response",
+          "iconName": "cross.case.fill"
+        }
+      ]
+    },
+    {
+      "id": "first-aid",
+      "title": "First Aid Basics",
+      "subtitle": "Simple steps that can save a life",
+      "iconName": "cross.case.fill",
+      "accentHex": "#16A34A",
+      "badge": "Life saving",
+      "sections": [
+        {
+          "id": "first-aid-1",
+          "title": "Check the scene",
+          "body": "Before helping, make sure the area is safe for you and the injured person. Call 1990 for an ambulance when needed.",
+          "steps": [
+            "Look for traffic, fire, water or electrical hazards.",
+            "Call 1990 and give a clear location.",
+            "Do not move an injured person unless they are in immediate danger.",
+            "Ask bystanders to help direct emergency services."
+          ]
+        },
+        {
+          "id": "first-aid-2",
+          "title": "Severe bleeding",
+          "body": "Apply firm direct pressure to the wound with a clean cloth. Keep pressing and do not remove the cloth if it soaks through.",
+          "steps": [
+            "Press firmly on the wound.",
+            "Add more cloth on top if needed.",
+            "Elevate the limb if possible.",
+            "Keep the person warm and calm."
+          ]
+        },
+        {
+          "id": "first-aid-3",
+          "title": "CPR",
+          "body": "If a person is unresponsive and not breathing normally, start chest compressions and call for help.",
+          "steps": [
+            "Place the heel of your hand in the centre of the chest.",
+            "Push hard and fast at about 100 to 120 compressions per minute.",
+            "Allow the chest to come back up between compressions.",
+            "Continue until help arrives or the person recovers."
+          ]
+        }
+      ],
+      "contacts": [
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f10",
+          "name": "Suwa Seriya Ambulance",
+          "number": "1990",
+          "subtitle": "Free pre-hospital emergency care",
+          "iconName": "cross.case.fill"
+        }
+      ]
+    },
+    {
+      "id": "emergency-kit",
+      "title": "Emergency Kit",
+      "subtitle": "Pack what you need before disaster strikes",
+      "iconName": "backpack.fill",
+      "accentHex": "#7C3AED",
+      "badge": "Prepare",
+      "sections": [
+        {
+          "id": "kit-1",
+          "title": "Water and food",
+          "body": "Keep at least three days of supplies for every person in your household. Choose food that does not need cooking.",
+          "steps": [
+            "Three litres of drinking water per person per day.",
+            "Ready-to-eat food and a manual can opener.",
+            "Baby formula or pet food if needed.",
+            "Water purification tablets or a filter."
+          ]
+        },
+        {
+          "id": "kit-2",
+          "title": "Light and power",
+          "body": "Power may be cut for days. Keep torches, batteries and a power bank in a waterproof bag.",
+          "steps": [
+            "Torch and spare batteries.",
+            "Fully charged power bank and charging cable.",
+            "Battery or hand-crank radio.",
+            "Glow sticks for children."
+          ]
+        },
+        {
+          "id": "kit-3",
+          "title": "Documents and health",
+          "body": "Store copies of important documents and enough medicine for at least a week.",
+          "steps": [
+            "ID, insurance and property documents in a waterproof pouch.",
+            "Prescription medicines and a basic first aid kit.",
+            "Emergency contact list on paper.",
+            "Cash in small notes."
+          ]
+        }
+      ],
+      "contacts": [
+        {
+          "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f11",
+          "name": "Disaster Management Centre",
+          "number": "117",
+          "subtitle": "Preparedness guidance",
+          "iconName": "exclamationmark.shield.fill"
+        }
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f20",
+      "name": "Disaster Management Centre",
+      "number": "117",
+      "subtitle": "DMC emergency operations",
+      "iconName": "exclamationmark.shield.fill"
+    },
+    {
+      "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f21",
+      "name": "Police Emergency",
+      "number": "119",
+      "subtitle": "Sri Lanka Police",
+      "iconName": "shield.lefthalf.filled"
+    },
+    {
+      "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f22",
+      "name": "Suwa Seriya Ambulance",
+      "number": "1990",
+      "subtitle": "Free pre-hospital care",
+      "iconName": "cross.case.fill"
+    },
+    {
+      "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f23",
+      "name": "Fire & Rescue Service",
+      "number": "110",
+      "subtitle": "Colombo Fire Brigade",
+      "iconName": "flame.fill"
+    },
+    {
+      "id": "b2a6f8b0-7f14-4b3a-9c0a-2f3a6f1a1f24",
+      "name": "Coast Guard",
+      "number": "118",
+      "subtitle": "Maritime rescue",
+      "iconName": "water.waves"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23504" systemVersion="25F84" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="NO" userDefinedModelVersionIdentifier="">
+    <entity name="AlertRecordEntity" representedClassName="AlertRecordEntity" syncable="YES" codeGenerationType="none">
+        <attribute name="createdAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isRead" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="kindRaw" optional="NO" attributeType="String"/>
+        <attribute name="levelRaw" optional="NO" attributeType="String"/>
+        <attribute name="locationID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="locationName" optional="NO" attributeType="String"/>
+        <attribute name="message" optional="NO" attributeType="String"/>
+        <attribute name="ownerID" optional="NO" attributeType="String"/>
+        <attribute name="title" optional="NO" attributeType="String"/>
+        <fetchIndex name="byOwnerAndDate">
+            <fetchIndexElement property="ownerID" type="Binary" order="ascending"/>
+            <fetchIndexElement property="createdAt" type="Binary" order="descending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="IncidentReportEntity" representedClassName="IncidentReportEntity" syncable="YES" codeGenerationType="none">
+        <attribute name="address" optional="NO" attributeType="String"/>
+        <attribute name="authorName" optional="NO" attributeType="String"/>
+        <attribute name="categoryRaw" optional="NO" attributeType="String"/>
+        <attribute name="createdAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="details" optional="NO" attributeType="String"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isFlagged" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isMine" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isPendingSync" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isVerified" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="latitude" optional="NO" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="NO" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="ownerID" optional="YES" attributeType="String"/>
+        <attribute name="photoData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="title" optional="NO" attributeType="String"/>
+        <attribute name="upvotes" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <fetchIndex name="byDate">
+            <fetchIndexElement property="createdAt" type="Binary" order="descending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="RiskSnapshotEntity" representedClassName="RiskSnapshotEntity" syncable="YES" codeGenerationType="none">
+        <attribute name="conditionRaw" optional="NO" attributeType="String"/>
+        <attribute name="createdAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="humidity" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="levelRaw" optional="NO" attributeType="String"/>
+        <attribute name="locationKey" optional="NO" attributeType="String"/>
+        <attribute name="locationName" optional="NO" attributeType="String"/>
+        <attribute name="rainfall" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="score" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="temperature" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="weatherData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="wind" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <fetchIndex name="byLocationAndDate">
+            <fetchIndexElement property="locationKey" type="Binary" order="ascending"/>
+            <fetchIndexElement property="createdAt" type="Binary" order="descending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="SavedLocationEntity" representedClassName="SavedLocationEntity" syncable="YES" codeGenerationType="none">
+        <attribute name="address" optional="NO" attributeType="String"/>
+        <attribute name="createdAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="emergencyAlerts" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isMonitoring" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="latitude" optional="NO" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="NO" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="monitoringStartedAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="NO" attributeType="String"/>
+        <attribute name="ownerID" optional="NO" attributeType="String"/>
+        <attribute name="radius" attributeType="Double" defaultValueString="500" usesScalarValueType="YES"/>
+        <attribute name="riskLevelChanges" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="sortIndex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="weatherAlerts" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <fetchIndex name="byOwner">
+            <fetchIndexElement property="ownerID" type="Binary" order="ascending"/>
+            <fetchIndexElement property="sortIndex" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="UserAccountEntity" representedClassName="UserAccountEntity" syncable="YES" codeGenerationType="none">
+        <attribute name="createdAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="displayName" optional="NO" attributeType="String"/>
+        <attribute name="email" optional="NO" attributeType="String"/>
+        <attribute name="emergencyContactName" optional="YES" attributeType="String"/>
+        <attribute name="emergencyContactPhone" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="passwordHash" optional="NO" attributeType="String"/>
+        <attribute name="salt" optional="NO" attributeType="String"/>
+        <fetchIndex name="byEmail">
+            <fetchIndexElement property="email" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <elements>
+        <element name="AlertRecordEntity" positionX="-63" positionY="36" width="128" height="239"/>
+        <element name="IncidentReportEntity" positionX="-63" positionY="36" width="128" height="344"/>
+        <element name="RiskSnapshotEntity" positionX="-63" positionY="36" width="128" height="239"/>
+        <element name="SavedLocationEntity" positionX="-63" positionY="36" width="128" height="284"/>
+        <element name="UserAccountEntity" positionX="-63" positionY="36" width="128" height="194"/>
+    </elements>
+</model>
