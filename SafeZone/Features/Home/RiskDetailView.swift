@@ -35,18 +35,18 @@ struct RiskDetailView: View {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(location.name)
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.szScaled(14, weight: .semibold))
                         .foregroundStyle(.white.opacity(0.75))
                     Text(risk.level.title)
-                        .font(.system(size: 32, weight: .bold, design: .rounded))
+                        .font(.szScaled(32, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
                     Text(location.address)
-                        .font(.system(size: 12))
+                        .font(.szScaled(12))
                         .foregroundStyle(.white.opacity(0.7))
                 }
                 Spacer()
                 Image(systemName: risk.level.iconName)
-                    .font(.system(size: 44, weight: .semibold))
+                    .font(.szScaled(44, weight: .semibold))
                     .foregroundStyle(.white)
                     .symbolRenderingMode(.hierarchical)
             }
@@ -55,14 +55,14 @@ struct RiskDetailView: View {
                 RiskGauge(level: risk.level, score: risk.score, size: 82)
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Indicative weather risk")
-                        .font(.system(size: 11, weight: .semibold))
+                        .font(.szScaled(11, weight: .semibold))
                         .textCase(.uppercase)
                         .foregroundStyle(.white.opacity(0.65))
                     Text(AppFormatters.updated(risk.assessedAt))
-                        .font(.system(size: 12))
+                        .font(.szScaled(12))
                         .foregroundStyle(.white.opacity(0.75))
                     Text(weather.source == .demo ? "Demo weather data" : "Live weather data")
-                        .font(.system(size: 11, weight: .semibold))
+                        .font(.szScaled(11, weight: .semibold))
                         .foregroundStyle(Theme.brandAqua)
                 }
                 Spacer()
@@ -90,7 +90,7 @@ struct RiskDetailView: View {
         VStack(alignment: .leading, spacing: 12) {
             SectionHeader(title: "Situation Report")
             Text(risk.summary)
-                .font(.system(size: 14))
+                .font(.szScaled(14))
                 .foregroundStyle(Theme.textSecondary)
                 .lineSpacing(3)
                 .fixedSize(horizontal: false, vertical: true)
@@ -103,10 +103,10 @@ struct RiskDetailView: View {
                         IconCircle(icon: factor.iconName, tint: impactColor(factor.impact), size: 34)
                         VStack(alignment: .leading, spacing: 1) {
                             Text(factor.title)
-                                .font(.system(size: 13, weight: .semibold))
+                                .font(.szScaled(13, weight: .semibold))
                                 .foregroundStyle(Theme.textPrimary)
                             Text(factor.detail)
-                                .font(.system(size: 11))
+                                .font(.szScaled(11))
                                 .foregroundStyle(Theme.textSecondary)
                         }
                         Spacer()
@@ -129,12 +129,12 @@ struct RiskDetailView: View {
             ForEach(Array(risk.recommendedActions.enumerated()), id: \.offset) { index, action in
                 HStack(alignment: .top, spacing: 12) {
                     Text("\(index + 1)")
-                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                        .font(.szScaled(12, weight: .bold, design: .rounded))
                         .foregroundStyle(.white)
                         .frame(width: 24, height: 24)
                         .background(Circle().fill(risk.level.color))
                     Text(action)
-                        .font(.system(size: 14))
+                        .font(.szScaled(14))
                         .foregroundStyle(Theme.textPrimary)
                         .fixedSize(horizontal: false, vertical: true)
                     Spacer(minLength: 0)

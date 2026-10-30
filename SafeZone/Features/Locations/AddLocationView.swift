@@ -52,7 +52,7 @@ struct AddLocationView: View {
                         Button("Delete Location", role: .destructive) {
                             showDeleteConfirmation = true
                         }
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.szScaled(14, weight: .semibold))
                         .foregroundStyle(Theme.riskHigh)
                         .padding(.top, 4)
                     }
@@ -91,10 +91,10 @@ struct AddLocationView: View {
     private var nameSection: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Location Name")
-                .font(.system(size: 12, weight: .semibold))
+                .font(.szScaled(12, weight: .semibold))
                 .foregroundStyle(Theme.textSecondary)
             TextField("Home, Work, Amma's House…", text: $viewModel.name)
-                .font(.system(size: 16, weight: .semibold))
+                .font(.szScaled(16, weight: .semibold))
                 .textInputAutocapitalization(.words)
                 .padding(14)
                 .background(
@@ -112,7 +112,7 @@ struct AddLocationView: View {
     private var addressSection: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Address / Pin Location")
-                .font(.system(size: 12, weight: .semibold))
+                .font(.szScaled(12, weight: .semibold))
                 .foregroundStyle(Theme.textSecondary)
 
             HStack(spacing: 10) {
@@ -125,7 +125,7 @@ struct AddLocationView: View {
                     ProgressView().controlSize(.small)
                 }
             }
-            .font(.system(size: 15))
+            .font(.szScaled(15))
             .padding(14)
             .background(
                 RoundedRectangle(cornerRadius: 14, style: .continuous)
@@ -148,11 +148,11 @@ struct AddLocationView: View {
                                     .padding(.top, 1)
                                 VStack(alignment: .leading, spacing: 1) {
                                     Text(suggestion.title)
-                                        .font(.system(size: 13, weight: .semibold))
+                                        .font(.szScaled(13, weight: .semibold))
                                         .foregroundStyle(Theme.textPrimary)
                                     if !suggestion.subtitle.isEmpty {
                                         Text(suggestion.subtitle)
-                                            .font(.system(size: 11))
+                                            .font(.szScaled(11))
                                             .foregroundStyle(Theme.textSecondary)
                                     }
                                 }
@@ -184,7 +184,7 @@ struct AddLocationView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundStyle(Theme.success)
                     Text(viewModel.address)
-                        .font(.system(size: 12, weight: .medium))
+                        .font(.szScaled(12, weight: .medium))
                         .foregroundStyle(Theme.textSecondary)
                         .lineLimit(2)
                 }
@@ -202,7 +202,7 @@ struct AddLocationView: View {
                     }
                     Text("Use Current GPS Location")
                 }
-                .font(.system(size: 13, weight: .semibold))
+                .font(.szScaled(13, weight: .semibold))
                 .foregroundStyle(Theme.brandTeal)
             }
             .padding(.top, 2)
@@ -271,7 +271,7 @@ struct AddLocationView: View {
                 SectionHeader(title: "Geofence Radius")
                 Spacer()
                 Text(viewModel.radius >= 1000 ? String(format: "%.1f km", viewModel.radius / 1000) : "\(Int(viewModel.radius)) m")
-                    .font(.system(size: 14, weight: .bold, design: .rounded))
+                    .font(.szScaled(14, weight: .bold, design: .rounded))
                     .foregroundStyle(Theme.brandTeal)
             }
             Slider(value: $viewModel.radius, in: 100...2_000, step: 50)
@@ -279,7 +279,7 @@ struct AddLocationView: View {
                 .disabled(!viewModel.isMonitoring)
                 .accessibilityValue("\(Int(viewModel.radius)) metres")
             Text("iOS allows up to 20 monitored regions. Larger radii use fewer precise boundaries.")
-                .font(.system(size: 11))
+                .font(.szScaled(11))
                 .foregroundStyle(Theme.textTertiary)
         }
         .cardStyle(padding: 16)
@@ -309,15 +309,15 @@ struct AddLocationView: View {
     private func settingLabel(icon: String, title: String, subtitle: String) -> some View {
         HStack(spacing: 10) {
             Image(systemName: icon)
-                .font(.system(size: 14, weight: .semibold))
+                .font(.szScaled(14, weight: .semibold))
                 .foregroundStyle(Theme.brandTeal)
                 .frame(width: 22)
             VStack(alignment: .leading, spacing: 1) {
                 Text(title)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.szScaled(14, weight: .semibold))
                     .foregroundStyle(Theme.textPrimary)
                 Text(subtitle)
-                    .font(.system(size: 11))
+                    .font(.szScaled(11))
                     .foregroundStyle(Theme.textSecondary)
             }
         }

@@ -87,9 +87,9 @@ struct RiskBadge: View {
     var body: some View {
         HStack(spacing: 5) {
             Image(systemName: level.iconName)
-                .font(.system(size: compact ? 9 : 11, weight: .bold))
+                .font(.szScaled(compact ? 9 : 11, weight: .bold))
             Text(compact ? level.shortTitle : level.title)
-                .font(.system(size: compact ? 10 : 12, weight: .bold, design: .rounded))
+                .font(.szScaled(compact ? 10 : 12, weight: .bold, design: .rounded))
                 .textCase(compact ? .uppercase : nil)
         }
         .foregroundStyle(level.color)
@@ -130,11 +130,11 @@ struct RiskGauge: View {
                 .rotationEffect(.degrees(-90))
             VStack(spacing: 1) {
                 Text("\(score)")
-                    .font(.system(size: size * 0.30, weight: .bold, design: .rounded))
+                    .font(.szScaled(size * 0.30, weight: .bold, design: .rounded))
                     .foregroundStyle(level.color)
                     .contentTransition(.numericText())
                 Text("/ 100")
-                    .font(.system(size: size * 0.11, weight: .semibold, design: .rounded))
+                    .font(.szScaled(size * 0.11, weight: .semibold, design: .rounded))
                     .foregroundStyle(Theme.textSecondary)
             }
         }
@@ -168,14 +168,14 @@ struct SectionHeader: View {
                     .foregroundStyle(Theme.textPrimary)
                 if let subtitle {
                     Text(subtitle)
-                        .font(.system(size: 13))
+                        .font(.szScaled(13))
                         .foregroundStyle(Theme.textSecondary)
                 }
             }
             Spacer()
             if let actionTitle, let action {
                 Button(actionTitle, action: action)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.szScaled(14, weight: .semibold))
                     .foregroundStyle(Theme.brandTeal)
             }
         }
@@ -193,15 +193,15 @@ struct WeatherMetric: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
             Image(systemName: icon)
-                .font(.system(size: 15, weight: .semibold))
+                .font(.szScaled(15, weight: .semibold))
                 .foregroundStyle(light ? Color.white.opacity(0.9) : tint)
             Text(value)
-                .font(.system(size: 17, weight: .bold, design: .rounded))
+                .font(.szScaled(17, weight: .bold, design: .rounded))
                 .foregroundStyle(light ? .white : Theme.textPrimary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
             Text(title)
-                .font(.system(size: 11, weight: .medium))
+                .font(.szScaled(11, weight: .medium))
                 .foregroundStyle(light ? Color.white.opacity(0.7) : Theme.textSecondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -221,10 +221,10 @@ struct FilterChip: View {
             HStack(spacing: 5) {
                 if let icon {
                     Image(systemName: icon)
-                        .font(.system(size: 11, weight: .semibold))
+                        .font(.szScaled(11, weight: .semibold))
                 }
                 Text(title)
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.szScaled(13, weight: .semibold))
             }
             .foregroundStyle(isSelected ? .white : Theme.textSecondary)
             .padding(.horizontal, 13)
@@ -255,7 +255,7 @@ struct EmptyStateView: View {
     var body: some View {
         VStack(spacing: 14) {
             Image(systemName: icon)
-                .font(.system(size: 34, weight: .semibold))
+                .font(.szScaled(34, weight: .semibold))
                 .foregroundStyle(Theme.brandTeal)
                 .frame(width: 76, height: 76)
                 .background(Circle().fill(Theme.brandTeal.opacity(0.12)))
@@ -265,7 +265,7 @@ struct EmptyStateView: View {
                 .foregroundStyle(Theme.textPrimary)
                 .multilineTextAlignment(.center)
             Text(message)
-                .font(.system(size: 14))
+                .font(.szScaled(14))
                 .foregroundStyle(Theme.textSecondary)
                 .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)
@@ -317,17 +317,17 @@ struct InlineMessage: View {
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
             Image(systemName: style.icon)
-                .font(.system(size: 15, weight: .semibold))
+                .font(.szScaled(15, weight: .semibold))
                 .foregroundStyle(style.color)
                 .accessibilityHidden(true)
             Text(message)
-                .font(.system(size: 13))
+                .font(.szScaled(13))
                 .foregroundStyle(Theme.textSecondary)
                 .fixedSize(horizontal: false, vertical: true)
             Spacer(minLength: 0)
             if let actionTitle, let action {
                 Button(actionTitle, action: action)
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.szScaled(13, weight: .semibold))
                     .foregroundStyle(style.color)
             }
         }
@@ -346,13 +346,14 @@ struct InlineMessage: View {
 
 struct OfflineBanner: View {
     var message = "You're offline. Showing saved data."
+    var icon = "wifi.slash"
 
     var body: some View {
         HStack(spacing: 8) {
-            Image(systemName: "wifi.slash")
-                .font(.system(size: 12, weight: .bold))
+            Image(systemName: icon)
+                .font(.szScaled(12, weight: .bold))
             Text(message)
-                .font(.system(size: 12, weight: .medium))
+                .font(.szScaled(12, weight: .medium))
         }
         .foregroundStyle(Theme.textSecondary)
         .padding(.horizontal, 14)
@@ -374,10 +375,10 @@ struct TagPill: View {
         HStack(spacing: 4) {
             if let icon {
                 Image(systemName: icon)
-                    .font(.system(size: 9, weight: .bold))
+                    .font(.szScaled(9, weight: .bold))
             }
             Text(text)
-                .font(.system(size: 10, weight: .bold, design: .rounded))
+                .font(.szScaled(10, weight: .bold, design: .rounded))
                 .textCase(.uppercase)
                 .fixedSize(horizontal: true, vertical: false)
         }
@@ -395,7 +396,7 @@ struct IconCircle: View {
 
     var body: some View {
         Image(systemName: icon)
-            .font(.system(size: size * 0.42, weight: .semibold))
+            .font(.szScaled(size * 0.42, weight: .semibold))
             .foregroundStyle(tint)
             .frame(width: size, height: size)
             .background(Circle().fill(tint.opacity(0.12)))
@@ -411,7 +412,7 @@ struct LoadingCard: View {
             ProgressView()
                 .tint(Theme.brandTeal)
             Text(message)
-                .font(.system(size: 14, weight: .medium))
+                .font(.szScaled(14, weight: .medium))
                 .foregroundStyle(Theme.textSecondary)
             Spacer()
         }
@@ -430,13 +431,13 @@ struct ErrorStateView: View {
     var body: some View {
         VStack(spacing: 12) {
             Image(systemName: "wifi.exclamationmark")
-                .font(.system(size: 30, weight: .semibold))
+                .font(.szScaled(30, weight: .semibold))
                 .foregroundStyle(Theme.riskMedium)
             Text(title)
                 .font(.szHeadline(17))
                 .foregroundStyle(Theme.textPrimary)
             Text(message)
-                .font(.system(size: 13))
+                .font(.szScaled(13))
                 .foregroundStyle(Theme.textSecondary)
                 .multilineTextAlignment(.center)
             if let retry {
@@ -460,7 +461,7 @@ struct DividerLabel: View {
                 .fill(Theme.separator.opacity(0.6))
                 .frame(height: 0.8)
             Text(text)
-                .font(.system(size: 11, weight: .semibold))
+                .font(.szScaled(11, weight: .semibold))
                 .foregroundStyle(Theme.textTertiary)
                 .textCase(.uppercase)
                 .fixedSize()

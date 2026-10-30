@@ -63,13 +63,13 @@ struct EditProfileView: View {
                     .fill(Theme.aquaGradient)
                     .frame(width: 76, height: 76)
                 Text(initials)
-                    .font(.system(size: 25, weight: .bold, design: .rounded))
+                    .font(.szScaled(25, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
             }
             .shadow(color: Theme.brandTeal.opacity(0.25), radius: 10, x: 0, y: 5)
 
             Text(profile?.email ?? "")
-                .font(.system(size: 12))
+                .font(.szScaled(12))
                 .foregroundStyle(Theme.textSecondary)
             TagPill(text: "Member since \(memberSince)", icon: "calendar", color: Theme.brandTeal)
         }
@@ -94,10 +94,10 @@ struct EditProfileView: View {
             fieldLabel("Email")
             HStack(spacing: 8) {
                 Image(systemName: "envelope.fill")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.szScaled(12, weight: .semibold))
                     .foregroundStyle(Theme.textTertiary)
                 Text(profile?.email ?? "—")
-                    .font(.system(size: 14))
+                    .font(.szScaled(14))
                     .foregroundStyle(Theme.textSecondary)
                 Spacer()
                 TagPill(text: "Read-only", color: Theme.textTertiary)
@@ -168,7 +168,7 @@ struct EditProfileView: View {
 
     private func fieldLabel(_ text: String) -> some View {
         Text(text)
-            .font(.system(size: 11, weight: .semibold))
+            .font(.szScaled(11, weight: .semibold))
             .textCase(.uppercase)
             .foregroundStyle(Theme.textSecondary)
     }

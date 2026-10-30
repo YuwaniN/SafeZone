@@ -147,10 +147,10 @@ struct EmergencyMapView: View {
         HStack(spacing: 10) {
             HStack(spacing: 8) {
                 Image(systemName: "magnifyingglass")
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.szScaled(14, weight: .semibold))
                     .foregroundStyle(Theme.textSecondary)
                 TextField("Search services or reports", text: $viewModel.searchText)
-                    .font(.system(size: 14))
+                    .font(.szScaled(14))
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
                     .submitLabel(.search)
@@ -174,7 +174,7 @@ struct EmergencyMapView: View {
                 Task { await viewModel.recenterToUser() }
             } label: {
                 Image(systemName: viewModel.isLocating ? "location.fill" : "location")
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.szScaled(15, weight: .semibold))
                     .foregroundStyle(Theme.brandTeal)
                     .frame(width: 42, height: 42)
                     .background(Circle().fill(.regularMaterial))
@@ -206,9 +206,9 @@ struct EmergencyMapView: View {
     private var centerPill: some View {
         HStack(spacing: 6) {
             Image(systemName: "location.fill")
-                .font(.system(size: 10, weight: .bold))
+                .font(.szScaled(10, weight: .bold))
             Text(viewModel.centerName)
-                .font(.system(size: 12, weight: .semibold))
+                .font(.szScaled(12, weight: .semibold))
                 .lineLimit(1)
         }
         .foregroundStyle(Theme.textPrimary)
@@ -223,7 +223,7 @@ struct EmergencyMapView: View {
             viewModel.recenter()
         } label: {
             Image(systemName: "scope")
-                .font(.system(size: 16, weight: .semibold))
+                .font(.szScaled(16, weight: .semibold))
                 .foregroundStyle(Theme.textPrimary)
                 .frame(width: 42, height: 42)
                 .background(Circle().fill(.regularMaterial))
@@ -240,7 +240,7 @@ struct EmergencyMapView: View {
                     .font(.szTitle(26))
                     .foregroundStyle(Theme.textPrimary)
                 Text("Near \(viewModel.centerName)")
-                    .font(.system(size: 12))
+                    .font(.szScaled(12))
                     .foregroundStyle(Theme.textSecondary)
             }
             .padding(.top, 6)
@@ -382,8 +382,8 @@ struct EmergencyMapView: View {
                     Text(viewModel.filter == .incidents ? "Community Reports" : "Nearby Services")
                         .font(.szHeadline(17))
                         .foregroundStyle(Theme.textPrimary)
-                    Text("\(resultCount) results near \(viewModel.centerName)")
-                        .font(.system(size: 11))
+                    Text(resultsSubtitle)
+                        .font(.szScaled(11))
                         .foregroundStyle(Theme.textSecondary)
                         .lineLimit(1)
                 }
@@ -392,7 +392,7 @@ struct EmergencyMapView: View {
                     Task { await viewModel.refresh() }
                 } label: {
                     Image(systemName: "arrow.clockwise")
-                        .font(.system(size: 13, weight: .semibold))
+                        .font(.szScaled(13, weight: .semibold))
                         .foregroundStyle(Theme.brandTeal)
                         .frame(width: 30, height: 30)
                         .background(Circle().fill(Theme.brandTeal.opacity(0.1)))
@@ -442,7 +442,7 @@ struct EmergencyMapView: View {
             Image(systemName: "magnifyingglass")
                 .foregroundStyle(Theme.textTertiary)
             Text(message)
-                .font(.system(size: 12))
+                .font(.szScaled(12))
                 .foregroundStyle(Theme.textSecondary)
             Spacer()
         }
@@ -471,10 +471,10 @@ struct EmergencyMapView: View {
                         }
                     }
                     Text(serviceSubtitle(service))
-                        .font(.system(size: 11, weight: .medium))
+                        .font(.szScaled(11, weight: .medium))
                         .foregroundStyle(Theme.textSecondary)
                     Text(service.address)
-                        .font(.system(size: 11))
+                        .font(.szScaled(11))
                         .foregroundStyle(Theme.textTertiary)
                         .lineLimit(2)
                 }
@@ -483,7 +483,7 @@ struct EmergencyMapView: View {
                     viewModel.clearSelection()
                 } label: {
                     Image(systemName: "xmark.circle.fill")
-                        .font(.system(size: 18))
+                        .font(.szScaled(18))
                         .foregroundStyle(Theme.textTertiary)
                 }
                 .accessibilityLabel("Close service details")
@@ -522,6 +522,16 @@ struct EmergencyMapView: View {
     private var resultCount: Int {
         viewModel.filter == .incidents ? viewModel.visibleIncidents.count : viewModel.visibleServices.count
     }
+
+    private var resultsSubtitle: String {
+        if viewModel.filter == .incidents {
+            return "\(resultCount) reports near \(viewModel.centerName)"
+        }
+        if viewModel.mapServices.count < resultCount {
+            return "\(resultCount) results • \(viewModel.mapServices.count) on map"
+        }
+        return "\(resultCount) results near \(viewModel.centerName)"
+    }
 }
 
 private struct MapServicePin: View {
@@ -535,7 +545,7 @@ private struct MapServicePin: View {
                 .overlay(Circle().strokeBorder(.white, lineWidth: 2.5))
                 .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
             Image(systemName: service.category.iconName)
-                .font(.system(size: 14, weight: .bold))
+                .font(.szScaled(14, weight: .bold))
                 .foregroundStyle(.white)
         }
     }
@@ -552,7 +562,7 @@ private struct MapIncidentPin: View {
                 .overlay(Circle().strokeBorder(.white, lineWidth: 2.5))
                 .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
             Image(systemName: incident.category.iconName)
-                .font(.system(size: 13, weight: .bold))
+                .font(.szScaled(13, weight: .bold))
                 .foregroundStyle(.white)
         }
     }
@@ -573,11 +583,11 @@ private struct SavedLocationPin: View {
                             .strokeBorder(.white, lineWidth: 2)
                     )
                 Image(systemName: "house.fill")
-                    .font(.system(size: 12, weight: .bold))
+                    .font(.szScaled(12, weight: .bold))
                     .foregroundStyle(.white)
             }
             Text(name)
-                .font(.system(size: 9, weight: .bold, design: .rounded))
+                .font(.szScaled(9, weight: .bold, design: .rounded))
                 .foregroundStyle(Theme.textPrimary)
                 .padding(.horizontal, 5)
                 .padding(.vertical, 2)
@@ -600,10 +610,10 @@ private struct MapServiceRow: View {
                         .foregroundStyle(Theme.textPrimary)
                         .lineLimit(1)
                     Text(service.category.singularTitle)
-                        .font(.system(size: 11, weight: .medium))
+                        .font(.szScaled(11, weight: .medium))
                         .foregroundStyle(service.category.color)
                     Text(service.address)
-                        .font(.system(size: 11))
+                        .font(.szScaled(11))
                         .foregroundStyle(Theme.textTertiary)
                         .lineLimit(1)
                 }
@@ -611,11 +621,11 @@ private struct MapServiceRow: View {
                 VStack(alignment: .trailing, spacing: 4) {
                     if let distance = service.distanceDisplay {
                         Text(distance)
-                            .font(.system(size: 11, weight: .semibold))
+                            .font(.szScaled(11, weight: .semibold))
                             .foregroundStyle(Theme.textSecondary)
                     }
                     Image(systemName: "chevron.right")
-                        .font(.system(size: 10, weight: .bold))
+                        .font(.szScaled(10, weight: .bold))
                         .foregroundStyle(Theme.textTertiary)
                 }
             }
@@ -651,19 +661,19 @@ private struct MapIncidentRow: View {
                         .foregroundStyle(Theme.textPrimary)
                         .lineLimit(2)
                     Text("\(AppFormatters.timeAgo(incident.createdAt)) • \(AppFormatters.distance(distance))")
-                        .font(.system(size: 11))
+                        .font(.szScaled(11))
                         .foregroundStyle(Theme.textSecondary)
                     Text(incident.address)
-                        .font(.system(size: 11))
+                        .font(.szScaled(11))
                         .foregroundStyle(Theme.textTertiary)
                         .lineLimit(1)
                 }
                 Spacer(minLength: 0)
                 HStack(spacing: 3) {
                     Image(systemName: "hand.thumbsup.fill")
-                        .font(.system(size: 9))
+                        .font(.szScaled(9))
                     Text("\(incident.upvotes)")
-                        .font(.system(size: 11, weight: .semibold))
+                        .font(.szScaled(11, weight: .semibold))
                 }
                 .foregroundStyle(Theme.textSecondary)
             }
@@ -681,6 +691,8 @@ private struct MapIncidentRow: View {
 private struct ServiceCompactCard: View {
     let service: EmergencyService
     let action: () -> Void
+    @ScaledMetric(relativeTo: .body) private var cardWidth: CGFloat = 156
+    @ScaledMetric(relativeTo: .body) private var cardHeight: CGFloat = 108
 
     var body: some View {
         Button(action: action) {
@@ -690,7 +702,7 @@ private struct ServiceCompactCard: View {
                     Spacer()
                     if let distance = service.distanceDisplay {
                         Text(distance)
-                            .font(.system(size: 10, weight: .semibold))
+                            .font(.szScaled(10, weight: .semibold))
                             .foregroundStyle(Theme.textSecondary)
                     }
                 }
@@ -700,11 +712,11 @@ private struct ServiceCompactCard: View {
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
                 Text(service.category.singularTitle)
-                    .font(.system(size: 10, weight: .semibold))
+                    .font(.szScaled(10, weight: .semibold))
                     .foregroundStyle(service.category.color)
             }
             .padding(11)
-            .frame(width: 156, height: 108, alignment: .topLeading)
+            .frame(width: cardWidth, height: cardHeight, alignment: .topLeading)
             .background(
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(Theme.surface)
@@ -722,6 +734,8 @@ private struct IncidentCompactCard: View {
     let incident: IncidentReport
     let distance: Double
     let action: () -> Void
+    @ScaledMetric(relativeTo: .body) private var cardWidth: CGFloat = 190
+    @ScaledMetric(relativeTo: .body) private var cardHeight: CGFloat = 108
 
     var body: some View {
         Button(action: action) {
@@ -730,7 +744,7 @@ private struct IncidentCompactCard: View {
                     TagPill(text: incident.category.shortTitle, color: incident.category.color)
                     Spacer()
                     Text(AppFormatters.distance(distance))
-                        .font(.system(size: 10, weight: .semibold))
+                        .font(.szScaled(10, weight: .semibold))
                         .foregroundStyle(Theme.textSecondary)
                 }
                 Text(incident.title)
@@ -739,11 +753,11 @@ private struct IncidentCompactCard: View {
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
                 Text(AppFormatters.timeAgo(incident.createdAt))
-                    .font(.system(size: 10))
+                    .font(.szScaled(10))
                     .foregroundStyle(Theme.textTertiary)
             }
             .padding(11)
-            .frame(width: 190, height: 108, alignment: .topLeading)
+            .frame(width: cardWidth, height: cardHeight, alignment: .topLeading)
             .background(
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(Theme.surface)

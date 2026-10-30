@@ -86,7 +86,7 @@ struct MainTabView: View {
             .safeAreaInset(edge: .bottom) {
                 if AppConfig.isDemoMode {
                     Label("Demo Data", systemImage: "sparkles")
-                        .font(.system(size: 11, weight: .semibold))
+                        .font(.szScaled(11, weight: .semibold))
                         .foregroundStyle(Theme.textSecondary)
                         .padding(.bottom, 10)
                 }

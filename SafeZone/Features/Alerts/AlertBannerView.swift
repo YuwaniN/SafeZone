@@ -37,34 +37,34 @@ struct AlertBannerView: View {
                     .fill(.white.opacity(0.18))
                     .frame(width: 42, height: 42)
                 Image(systemName: banner.level.iconName)
-                    .font(.system(size: 19, weight: .bold))
+                    .font(.szScaled(19, weight: .bold))
                     .foregroundStyle(.white)
             }
             .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(banner.title)
-                    .font(.system(size: 11, weight: .black, design: .rounded))
+                    .font(.szScaled(11, weight: .black, design: .rounded))
                     .textCase(.uppercase)
                     .foregroundStyle(.white.opacity(0.8))
                 Text(banner.locationName)
                     .font(.szHeadline(16))
                     .foregroundStyle(.white)
                 Text(banner.message)
-                    .font(.system(size: 12))
+                    .font(.szScaled(12))
                     .foregroundStyle(.white.opacity(0.82))
                     .lineLimit(2)
 
                 HStack(spacing: 14) {
                     Button("View Details", action: onDetails)
-                        .font(.system(size: 12, weight: .bold))
+                        .font(.szScaled(12, weight: .bold))
                         .foregroundStyle(.white)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
                         .background(Capsule().fill(.white.opacity(0.18)))
 
                     Button("Dismiss", action: onDismiss)
-                        .font(.system(size: 12, weight: .semibold))
+                        .font(.szScaled(12, weight: .semibold))
                         .foregroundStyle(.white.opacity(0.75))
                 }
                 .padding(.top, 4)
@@ -74,7 +74,7 @@ struct AlertBannerView: View {
 
             Button(action: onDismiss) {
                 Image(systemName: "xmark")
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.szScaled(11, weight: .bold))
                     .foregroundStyle(.white.opacity(0.75))
                     .frame(width: 28, height: 28)
                     .background(Circle().fill(.white.opacity(0.14)))
@@ -125,13 +125,13 @@ struct AlertDetailSheet: View {
     private var hero: some View {
         VStack(spacing: 10) {
             Image(systemName: banner.level.iconName)
-                .font(.system(size: 46, weight: .semibold))
+                .font(.szScaled(46, weight: .semibold))
                 .foregroundStyle(.white)
             Text(banner.level.title)
-                .font(.system(size: 30, weight: .bold, design: .rounded))
+                .font(.szScaled(30, weight: .bold, design: .rounded))
                 .foregroundStyle(.white)
             Text(banner.locationName)
-                .font(.system(size: 14, weight: .semibold))
+                .font(.szScaled(14, weight: .semibold))
                 .foregroundStyle(.white.opacity(0.75))
         }
         .frame(maxWidth: .infinity)
@@ -147,7 +147,7 @@ struct AlertDetailSheet: View {
             Text("Situation Update")
                 .font(.szHeadline(17))
             Text(banner.message)
-                .font(.system(size: 14))
+                .font(.szScaled(14))
                 .foregroundStyle(Theme.textSecondary)
                 .lineSpacing(3)
                 .fixedSize(horizontal: false, vertical: true)

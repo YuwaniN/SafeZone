@@ -36,7 +36,7 @@ struct AboutView: View {
                     .frame(width: 88, height: 88)
                     .shadow(color: Theme.brandTeal.opacity(0.3), radius: 14, x: 0, y: 7)
                 Image(systemName: "shield.lefthalf.filled")
-                    .font(.system(size: 38, weight: .semibold))
+                    .font(.szScaled(38, weight: .semibold))
                     .foregroundStyle(.white)
             }
 
@@ -45,7 +45,7 @@ struct AboutView: View {
                 .foregroundStyle(Theme.textPrimary)
 
             Text("Disaster alerts and emergency response for Sri Lanka")
-                .font(.system(size: 13))
+                .font(.szScaled(13))
                 .foregroundStyle(Theme.textSecondary)
                 .multilineTextAlignment(.center)
 
@@ -55,7 +55,7 @@ struct AboutView: View {
             }
 
             Text(appVersion)
-                .font(.system(size: 10, weight: .medium))
+                .font(.szScaled(10, weight: .medium))
                 .foregroundStyle(Theme.textTertiary)
                 .padding(.top, 2)
         }
@@ -83,10 +83,10 @@ struct AboutView: View {
         VStack(alignment: .leading, spacing: 6) {
             IconCircle(icon: icon, tint: tint, size: 34)
             Text(title)
-                .font(.system(size: 12, weight: .semibold))
+                .font(.szScaled(12, weight: .semibold))
                 .foregroundStyle(Theme.textPrimary)
             Text(detail)
-                .font(.system(size: 10))
+                .font(.szScaled(10))
                 .foregroundStyle(Theme.textSecondary)
                 .fixedSize(horizontal: false, vertical: true)
         }
@@ -113,11 +113,11 @@ struct AboutView: View {
     private func bullet(_ text: String) -> some View {
         HStack(alignment: .top, spacing: 8) {
             Image(systemName: "checkmark.circle.fill")
-                .font(.system(size: 11, weight: .semibold))
+                .font(.szScaled(11, weight: .semibold))
                 .foregroundStyle(Theme.success)
                 .padding(.top, 2)
             Text(text)
-                .font(.system(size: 12))
+                .font(.szScaled(12))
                 .foregroundStyle(Theme.textSecondary)
                 .fixedSize(horizontal: false, vertical: true)
         }
@@ -145,10 +145,10 @@ struct AboutView: View {
     private var footer: some View {
         VStack(spacing: 3) {
             Text("Built for COBSCCOMP25.1P coursework")
-                .font(.system(size: 10, weight: .medium))
+                .font(.szScaled(10, weight: .medium))
                 .foregroundStyle(Theme.textTertiary)
             Text("Emergency numbers: 117 (DMC) • 119 (Police) • 1990 (Ambulance) • 110 (Fire)")
-                .font(.system(size: 9))
+                .font(.szScaled(9))
                 .foregroundStyle(Theme.textTertiary)
                 .multilineTextAlignment(.center)
         }

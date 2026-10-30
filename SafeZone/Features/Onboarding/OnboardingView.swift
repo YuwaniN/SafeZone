@@ -68,10 +68,10 @@ struct OnboardingView: View {
         HStack {
             HStack(spacing: 9) {
                 Image(systemName: "shield.lefthalf.filled")
-                    .font(.system(size: 19, weight: .bold))
+                    .font(.szScaled(19, weight: .bold))
                     .foregroundStyle(Theme.brandAqua)
                 Text("SafeZone")
-                    .font(.system(size: 21, weight: .bold, design: .rounded))
+                    .font(.szScaled(21, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
             }
             .accessibilityElement(children: .combine)
@@ -82,7 +82,7 @@ struct OnboardingView: View {
             Button("Skip") {
                 appState.completeOnboarding()
             }
-            .font(.system(size: 15, weight: .semibold))
+            .font(.szScaled(15, weight: .semibold))
             .foregroundStyle(.white.opacity(0.8))
             .accessibilityHint("Skip onboarding and continue to sign in")
         }
@@ -108,7 +108,7 @@ struct OnboardingView: View {
                         Circle().strokeBorder(.white.opacity(0.18), lineWidth: 1)
                     )
                 Image(systemName: page.icon)
-                    .font(.system(size: 58, weight: .semibold))
+                    .font(.szScaled(58, weight: .semibold))
                     .foregroundStyle(page.accent)
                     .symbolRenderingMode(.hierarchical)
             }
@@ -116,13 +116,13 @@ struct OnboardingView: View {
 
             VStack(spacing: 14) {
                 Text(page.title)
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .font(.szScaled(30, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
 
                 Text(page.subtitle)
-                    .font(.system(size: 16))
+                    .font(.szScaled(16))
                     .foregroundStyle(.white.opacity(0.72))
                     .multilineTextAlignment(.center)
                     .lineSpacing(4)
@@ -162,9 +162,9 @@ struct OnboardingView: View {
                 HStack(spacing: 8) {
                     Text(currentPage == pages.count - 1 ? "Get Started" : "Continue")
                     Image(systemName: "arrow.right")
-                        .font(.system(size: 14, weight: .bold))
+                        .font(.szScaled(14, weight: .bold))
                 }
-                .font(.system(size: 17, weight: .bold, design: .rounded))
+                .font(.szScaled(17, weight: .bold, design: .rounded))
                 .foregroundStyle(Theme.brandNavy)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 16)

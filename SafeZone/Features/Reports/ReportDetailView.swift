@@ -40,7 +40,7 @@ struct ReportDetailView: View {
                     }
 
                     Text("Community reports are user-submitted. Verify conditions before travelling and follow official guidance during an emergency.")
-                        .font(.system(size: 11))
+                        .font(.szScaled(11))
                         .foregroundStyle(Theme.textTertiary)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 10)
@@ -116,7 +116,7 @@ struct ReportDetailView: View {
                         .frame(width: 120, height: 120)
                         .offset(x: -120, y: 60)
                     Image(systemName: report.category.iconName)
-                        .font(.system(size: 52, weight: .semibold))
+                        .font(.szScaled(52, weight: .semibold))
                         .foregroundStyle(.white)
                 }
                 .frame(height: 180)
@@ -128,7 +128,7 @@ struct ReportDetailView: View {
                 Image(systemName: report.category.iconName)
                 Text(report.category.title)
             }
-            .font(.system(size: 11, weight: .bold))
+            .font(.szScaled(11, weight: .bold))
             .foregroundStyle(.white)
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
@@ -164,15 +164,15 @@ struct ReportDetailView: View {
                         .fill(report.category.color.opacity(0.14))
                         .frame(width: 36, height: 36)
                     Text(authorInitials)
-                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                        .font(.szScaled(12, weight: .bold, design: .rounded))
                         .foregroundStyle(report.category.color)
                 }
                 VStack(alignment: .leading, spacing: 1) {
                     Text(report.authorName)
-                        .font(.system(size: 13, weight: .semibold))
+                        .font(.szScaled(13, weight: .semibold))
                         .foregroundStyle(Theme.textPrimary)
                     Text(AppFormatters.timeAgo(report.createdAt))
-                        .font(.system(size: 11))
+                        .font(.szScaled(11))
                         .foregroundStyle(Theme.textSecondary)
                 }
                 Spacer()
@@ -180,7 +180,7 @@ struct ReportDetailView: View {
                     Image(systemName: "hand.thumbsup.fill")
                     Text("\(report.upvotes)")
                 }
-                .font(.system(size: 12, weight: .bold))
+                .font(.szScaled(12, weight: .bold))
                 .foregroundStyle(Theme.brandTeal)
                 .padding(.horizontal, 10)
                 .padding(.vertical, 6)

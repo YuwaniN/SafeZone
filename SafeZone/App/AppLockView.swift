@@ -23,7 +23,7 @@ struct AppLockView: View {
                         .frame(width: 118, height: 118)
                         .shadow(color: Theme.brandTeal.opacity(0.35), radius: 26, x: 0, y: 12)
                     Image(systemName: availability.kind == .touchID ? "touchid" : "faceid")
-                        .font(.system(size: 50, weight: .light))
+                        .font(.szScaled(50, weight: .light))
                         .foregroundStyle(.white)
                 }
                 .accessibilityHidden(true)
@@ -33,7 +33,7 @@ struct AppLockView: View {
                         .font(.szTitle(27))
                         .foregroundStyle(Theme.textPrimary)
                     Text("Verify it's you to view risk alerts and emergency information.")
-                        .font(.system(size: 15))
+                        .font(.szScaled(15))
                         .foregroundStyle(Theme.textSecondary)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 28)
@@ -69,7 +69,7 @@ struct AppLockView: View {
                     Button("Sign in with Password") {
                         appState.signOut()
                     }
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.szScaled(14, weight: .semibold))
                     .foregroundStyle(Theme.textSecondary)
                     .padding(.top, 4)
                 }

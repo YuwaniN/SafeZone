@@ -40,7 +40,7 @@ struct CreateReportView: View {
                         submitButton
 
                         Text("Reports are shared with the SafeZone community. Only post hazards you have personally observed.")
-                            .font(.system(size: 11))
+                            .font(.szScaled(11))
                             .foregroundStyle(Theme.textTertiary)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 12)
@@ -90,9 +90,9 @@ struct CreateReportView: View {
                     } label: {
                         VStack(spacing: 6) {
                             Image(systemName: category.iconName)
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(.szScaled(18, weight: .semibold))
                             Text(category.title)
-                                .font(.system(size: 11, weight: .semibold))
+                                .font(.szScaled(11, weight: .semibold))
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.75)
                         }
@@ -121,7 +121,7 @@ struct CreateReportView: View {
             SectionHeader(title: "Report details", subtitle: "Give neighbours enough context")
 
             TextField("Short title, e.g. Galle Road flooded near Kollupitiya", text: $viewModel.title)
-                .font(.system(size: 15, weight: .medium))
+                .font(.szScaled(15, weight: .medium))
                 .focused($focusedField, equals: .title)
                 .submitLabel(.next)
                 .onSubmit {
@@ -141,14 +141,14 @@ struct CreateReportView: View {
             ZStack(alignment: .topLeading) {
                 if viewModel.details.isEmpty {
                     Text("What did you see? Include water depth, blocked lanes, and direction of travel.")
-                        .font(.system(size: 14))
+                        .font(.szScaled(14))
                         .foregroundStyle(Theme.textTertiary)
                         .padding(.horizontal, 17)
                         .padding(.vertical, 17)
                         .allowsHitTesting(false)
                 }
                 TextEditor(text: $viewModel.details)
-                    .font(.system(size: 14))
+                    .font(.szScaled(14))
                     .focused($focusedField, equals: .details)
                     .scrollContentBackground(.hidden)
                     .frame(minHeight: 120)
@@ -165,11 +165,11 @@ struct CreateReportView: View {
 
             HStack {
                 Text("At least 10 characters")
-                    .font(.system(size: 10))
+                    .font(.szScaled(10))
                     .foregroundStyle(Theme.textTertiary)
                 Spacer()
                 Text("\(viewModel.details.count) / 500")
-                    .font(.system(size: 10, weight: .medium))
+                    .font(.szScaled(10, weight: .medium))
                     .foregroundStyle(viewModel.details.count >= 500 ? Theme.warning : Theme.textTertiary)
             }
         }
@@ -184,7 +184,7 @@ struct CreateReportView: View {
                         .font(.szHeadline(19))
                         .foregroundStyle(Theme.textPrimary)
                     Text("Attach the report to a place")
-                        .font(.system(size: 13))
+                        .font(.szScaled(13))
                         .foregroundStyle(Theme.textSecondary)
                 }
                 Spacer()
@@ -201,7 +201,7 @@ struct CreateReportView: View {
                         }
                         Text(viewModel.isResolvingLocation ? "Locating…" : "Use Current")
                     }
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.szScaled(12, weight: .semibold))
                     .foregroundStyle(Theme.brandTeal)
                     .padding(.horizontal, 11)
                     .padding(.vertical, 8)
@@ -235,7 +235,7 @@ struct CreateReportView: View {
                             .foregroundStyle(Theme.textTertiary)
                     }
                     Text(viewModel.isResolvingLocation ? "Finding your location…" : "No location selected yet.")
-                        .font(.system(size: 12))
+                        .font(.szScaled(12))
                         .foregroundStyle(Theme.textSecondary)
                     Spacer()
                 }
@@ -248,10 +248,10 @@ struct CreateReportView: View {
 
             HStack(spacing: 8) {
                 Image(systemName: "mappin.and.ellipse")
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.szScaled(13, weight: .semibold))
                     .foregroundStyle(Theme.brandTeal)
                 TextField("Street, area, or landmark", text: $viewModel.address)
-                    .font(.system(size: 13))
+                    .font(.szScaled(13))
                     .focused($focusedField, equals: .address)
             }
             .padding(.horizontal, 12)
@@ -299,7 +299,7 @@ struct CreateReportView: View {
                         photoItem = nil
                     } label: {
                         Image(systemName: "xmark.circle.fill")
-                            .font(.system(size: 22))
+                            .font(.szScaled(22))
                             .foregroundStyle(.white, .black.opacity(0.45))
                     }
                     .padding(8)
@@ -342,7 +342,7 @@ struct CreateReportView: View {
             .opacity(viewModel.canSubmit ? 1 : 0.55)
 
             Text("Your name and report location will be visible to other SafeZone users.")
-                .font(.system(size: 10))
+                .font(.szScaled(10))
                 .foregroundStyle(Theme.textTertiary)
                 .multilineTextAlignment(.center)
         }

@@ -25,9 +25,10 @@ struct HomeView: View {
 
                     if !networkMonitor.isConnected || viewModel.isStale {
                         OfflineBanner(
-                            message: viewModel.isStale
-                                ? "Showing cached weather. Reconnect to refresh."
-                                : "You're offline. Showing saved data."
+                            message: networkMonitor.isConnected
+                                ? "Showing last saved weather. Pull to refresh."
+                                : "You're offline. Showing saved data.",
+                            icon: networkMonitor.isConnected ? "clock.arrow.circlepath" : "wifi.slash"
                         )
                     }
 
@@ -89,7 +90,7 @@ struct HomeView: View {
         HStack(alignment: .top, spacing: 12) {
             VStack(alignment: .leading, spacing: 5) {
                 Text("\(viewModel.greeting), \(viewModel.profileName)")
-                    .font(.system(size: 15, weight: .medium))
+                    .font(.szScaled(15, weight: .medium))
                     .foregroundStyle(Theme.textSecondary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
@@ -98,9 +99,9 @@ struct HomeView: View {
 
                 HStack(spacing: 5) {
                     Image(systemName: "location.fill")
-                        .font(.system(size: 9, weight: .bold))
+                        .font(.szScaled(9, weight: .bold))
                     Text(viewModel.selectedLocation.address)
-                        .font(.system(size: 12))
+                        .font(.szScaled(12))
                         .lineLimit(1)
                 }
                 .foregroundStyle(Theme.textTertiary)
@@ -113,14 +114,14 @@ struct HomeView: View {
             } label: {
                 ZStack(alignment: .topTrailing) {
                     Image(systemName: "bell.fill")
-                        .font(.system(size: 17, weight: .semibold))
+                        .font(.szScaled(17, weight: .semibold))
                         .foregroundStyle(Theme.textPrimary)
                         .frame(width: 42, height: 42)
                         .background(Circle().fill(Theme.surface))
                         .overlay(Circle().strokeBorder(Theme.separator.opacity(0.4), lineWidth: 0.8))
                     if appState.unreadAlertCount > 0 {
                         Text("\(min(appState.unreadAlertCount, 9))")
-                            .font(.system(size: 9, weight: .bold))
+                            .font(.szScaled(9, weight: .bold))
                             .foregroundStyle(.white)
                             .frame(width: 16, height: 16)
                             .background(Circle().fill(Theme.riskHigh))
@@ -135,7 +136,7 @@ struct HomeView: View {
                     .fill(Theme.aquaGradient)
                     .frame(width: 42, height: 42)
                 Text(appState.profile?.initials ?? "SZ")
-                    .font(.system(size: 14, weight: .bold, design: .rounded))
+                    .font(.szScaled(14, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
             }
             .accessibilityHidden(true)
@@ -178,10 +179,10 @@ struct HomeView: View {
         } label: {
             HStack(spacing: 6) {
                 Image(systemName: "mappin.and.ellipse")
-                    .font(.system(size: 13, weight: .bold))
+                    .font(.szScaled(13, weight: .bold))
                     .foregroundStyle(Theme.brandTeal)
                 Text(viewModel.selectedLocation.name)
-                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                    .font(.szScaled(24, weight: .bold, design: .rounded))
                     .foregroundStyle(Theme.textPrimary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.7)
@@ -190,7 +191,7 @@ struct HomeView: View {
                         .controlSize(.small)
                 } else {
                     Image(systemName: "chevron.down")
-                        .font(.system(size: 11, weight: .bold))
+                        .font(.szScaled(11, weight: .bold))
                         .foregroundStyle(Theme.textSecondary)
                 }
             }
@@ -220,7 +221,7 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack {
                         Text("Current Weather")
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(.szScaled(12, weight: .semibold))
                             .textCase(.uppercase)
                             .foregroundStyle(.white.opacity(0.65))
                         Spacer()
@@ -234,19 +235,19 @@ struct HomeView: View {
                     HStack(alignment: .center) {
                         VStack(alignment: .leading, spacing: 4) {
                             Text(weather.temperatureDisplay)
-                                .font(.system(size: 68, weight: .bold, design: .rounded))
+                                .font(.szScaled(68, weight: .bold, design: .rounded))
                                 .foregroundStyle(.white)
                                 .accessibilityLabel("\(Int(weather.temperatureC.rounded())) degrees Celsius")
                             Text(weather.conditionDescription)
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(.szScaled(16, weight: .semibold))
                                 .foregroundStyle(.white.opacity(0.9))
                             Text("Feels like \(Int(weather.feelsLikeC.rounded()))°")
-                                .font(.system(size: 12))
+                                .font(.szScaled(12))
                                 .foregroundStyle(.white.opacity(0.6))
                         }
                         Spacer()
                         Image(systemName: weather.condition.iconName)
-                            .font(.system(size: 78, weight: .regular))
+                            .font(.szScaled(78, weight: .regular))
                             .symbolRenderingMode(.hierarchical)
                             .foregroundStyle(.white)
                             .shadow(color: .black.opacity(0.15), radius: 12, x: 0, y: 8)
@@ -294,7 +295,7 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 7) {
                     HStack {
                         Text("Local Risk Analysis")
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.szScaled(11, weight: .bold))
                             .textCase(.uppercase)
                             .foregroundStyle(Theme.textSecondary)
                         Spacer()
@@ -306,7 +307,7 @@ struct HomeView: View {
                         .foregroundStyle(risk.level.color)
 
                     Text(risk.summary)
-                        .font(.system(size: 13))
+                        .font(.szScaled(13))
                         .foregroundStyle(Theme.textSecondary)
                         .lineSpacing(2)
                         .lineLimit(4)
@@ -323,9 +324,9 @@ struct HomeView: View {
                         HStack(spacing: 4) {
                             Text("View Risk Details")
                             Image(systemName: "chevron.right")
-                                .font(.system(size: 10, weight: .bold))
+                                .font(.szScaled(10, weight: .bold))
                         }
-                        .font(.system(size: 13, weight: .semibold))
+                        .font(.szScaled(13, weight: .semibold))
                         .foregroundStyle(Theme.brandTeal)
                     }
                     .accessibilityHint("Opens the full risk assessment and safety actions")
@@ -344,7 +345,7 @@ struct HomeView: View {
                         .font(.szHeadline(16))
                     Spacer()
                     Text("Colombo forecast")
-                        .font(.system(size: 11))
+                        .font(.szScaled(11))
                         .foregroundStyle(Theme.textTertiary)
                 }
 
@@ -352,17 +353,17 @@ struct HomeView: View {
                     ForEach(weather.forecast.prefix(4)) { point in
                         VStack(spacing: 7) {
                             Text(AppFormatters.hour.string(from: point.date))
-                                .font(.system(size: 11, weight: .semibold))
+                                .font(.szScaled(11, weight: .semibold))
                                 .foregroundStyle(Theme.textSecondary)
                             Image(systemName: point.condition.iconName)
-                                .font(.system(size: 21, weight: .semibold))
+                                .font(.szScaled(21, weight: .semibold))
                                 .symbolRenderingMode(.hierarchical)
                                 .foregroundStyle(point.condition.tint)
                             Text("\(Int(point.temperatureC.rounded()))°")
-                                .font(.system(size: 15, weight: .bold, design: .rounded))
+                                .font(.szScaled(15, weight: .bold, design: .rounded))
                                 .foregroundStyle(Theme.textPrimary)
                             Text("\(Int(point.precipitationChance.rounded()))%")
-                                .font(.system(size: 10, weight: .medium))
+                                .font(.szScaled(10, weight: .medium))
                                 .foregroundStyle(Theme.textTertiary)
                         }
                         .frame(maxWidth: .infinity)
@@ -450,7 +451,7 @@ struct HomeView: View {
                         Text("No alerts yet")
                             .font(.szHeadline(15))
                         Text("We'll notify you when risk changes at your saved locations.")
-                            .font(.system(size: 12))
+                            .font(.szScaled(12))
                             .foregroundStyle(Theme.textSecondary)
                     }
                     Spacer()
@@ -476,7 +477,7 @@ struct HomeView: View {
                         .fill(.white.opacity(0.18))
                         .frame(width: 52, height: 52)
                     Text("SOS")
-                        .font(.system(size: 14, weight: .black, design: .rounded))
+                        .font(.szScaled(14, weight: .black, design: .rounded))
                         .foregroundStyle(.white)
                 }
 
@@ -485,14 +486,14 @@ struct HomeView: View {
                         .font(.szHeadline(18))
                         .foregroundStyle(.white)
                     Text("Call hotlines or open the emergency map")
-                        .font(.system(size: 12))
+                        .font(.szScaled(12))
                         .foregroundStyle(.white.opacity(0.75))
                 }
 
                 Spacer()
 
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.szScaled(14, weight: .bold))
                     .foregroundStyle(.white.opacity(0.8))
             }
             .padding(16)
@@ -524,11 +525,11 @@ struct QuickActionCard: View {
             IconCircle(icon: icon, tint: tint, size: 42)
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.szScaled(14, weight: .semibold))
                     .foregroundStyle(Theme.textPrimary)
                     .lineLimit(1)
                 Text(subtitle)
-                    .font(.system(size: 11))
+                    .font(.szScaled(11))
                     .foregroundStyle(Theme.textSecondary)
                     .lineLimit(1)
             }
@@ -558,7 +559,7 @@ struct AlertRowCard: View {
             VStack(alignment: .leading, spacing: 3) {
                 HStack(spacing: 6) {
                     Text(alert.title)
-                        .font(.system(size: 13, weight: .semibold))
+                        .font(.szScaled(13, weight: .semibold))
                         .foregroundStyle(Theme.textPrimary)
                         .lineLimit(1)
                     if !alert.isRead {
@@ -569,11 +570,11 @@ struct AlertRowCard: View {
                     }
                     Spacer(minLength: 0)
                     Text(AppFormatters.timeAgo(alert.createdAt))
-                        .font(.system(size: 10))
+                        .font(.szScaled(10))
                         .foregroundStyle(Theme.textTertiary)
                 }
                 Text(alert.message)
-                    .font(.system(size: 12))
+                    .font(.szScaled(12))
                     .foregroundStyle(Theme.textSecondary)
                     .lineLimit(2)
             }

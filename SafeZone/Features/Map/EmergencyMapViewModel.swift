@@ -72,7 +72,8 @@ final class EmergencyMapViewModel: ObservableObject {
     }
 
     var mapServices: [EmergencyService] {
-        Array(visibleServices.prefix(24))
+        let limit = filter == .all ? 16 : 24
+        return Array(visibleServices.prefix(limit))
     }
 
     var savedLocationCount: Int {

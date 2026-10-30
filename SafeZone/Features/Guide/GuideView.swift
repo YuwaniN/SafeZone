@@ -2,6 +2,7 @@ import SwiftUI
 
 struct GuideView: View {
     @StateObject private var viewModel: GuideViewModel
+    @ScaledMetric(relativeTo: .body) private var hotlineCardWidth: CGFloat = 252
     @Environment(\.openURL) private var openURL
 
     init(container: AppContainer) {
@@ -35,7 +36,7 @@ struct GuideView: View {
                     .font(.szTitle(26))
                     .foregroundStyle(Theme.textPrimary)
                 Text("Step-by-step help that works without a connection")
-                    .font(.system(size: 12))
+                    .font(.szScaled(12))
                     .foregroundStyle(Theme.textSecondary)
             }
             Spacer()
@@ -47,10 +48,10 @@ struct GuideView: View {
     private var searchBar: some View {
         HStack(spacing: 8) {
             Image(systemName: "magnifyingglass")
-                .font(.system(size: 14, weight: .semibold))
+                .font(.szScaled(14, weight: .semibold))
                 .foregroundStyle(Theme.textSecondary)
             TextField("Search flood, fire, first aid…", text: $viewModel.searchText)
-                .font(.system(size: 14))
+                .font(.szScaled(14))
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
             if !viewModel.searchText.isEmpty {
@@ -91,20 +92,22 @@ struct GuideView: View {
                                 IconCircle(icon: contact.iconName, tint: Theme.riskHigh, size: 36)
                                 VStack(alignment: .leading, spacing: 1) {
                                     Text(contact.name)
-                                        .font(.system(size: 12, weight: .semibold))
+                                        .font(.szScaled(12, weight: .semibold))
                                         .foregroundStyle(Theme.textPrimary)
-                                        .lineLimit(1)
+                                        .lineLimit(2)
+                                        .multilineTextAlignment(.leading)
+                                        .fixedSize(horizontal: false, vertical: true)
                                     Text(contact.number)
-                                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                                        .font(.szScaled(15, weight: .bold, design: .rounded))
                                         .foregroundStyle(Theme.riskHigh)
                                 }
                                 Spacer(minLength: 0)
                                 Image(systemName: "phone.fill")
-                                    .font(.system(size: 12, weight: .semibold))
+                                    .font(.szScaled(12, weight: .semibold))
                                     .foregroundStyle(Theme.riskHigh)
                             }
                             .padding(11)
-                            .frame(width: 218, alignment: .leading)
+                            .frame(width: hotlineCardWidth, alignment: .leading)
                             .background(
                                 RoundedRectangle(cornerRadius: 15, style: .continuous)
                                     .fill(Theme.surface)
@@ -162,10 +165,10 @@ struct GuideView: View {
     private var offlineNote: some View {
         HStack(spacing: 9) {
             Image(systemName: "wifi.slash")
-                .font(.system(size: 13, weight: .semibold))
+                .font(.szScaled(13, weight: .semibold))
                 .foregroundStyle(Theme.brandTeal)
             Text("All guides are bundled with the app and remain available during outages.")
-                .font(.system(size: 11))
+                .font(.szScaled(11))
                 .foregroundStyle(Theme.textSecondary)
             Spacer(minLength: 0)
         }
@@ -200,10 +203,10 @@ private struct GuideTopicCard: View {
                 .multilineTextAlignment(.leading)
 
             Text(topic.subtitle)
-                .font(.system(size: 11))
+                .font(.szScaled(11))
                 .foregroundStyle(Theme.textSecondary)
                 .multilineTextAlignment(.leading)
-                .lineLimit(2)
+                .fixedSize(horizontal: false, vertical: true)
 
             Spacer(minLength: 0)
 
@@ -213,7 +216,7 @@ private struct GuideTopicCard: View {
                 Spacer()
                 Image(systemName: "chevron.right")
             }
-            .font(.system(size: 10, weight: .semibold))
+            .font(.szScaled(10, weight: .semibold))
             .foregroundStyle(accent)
         }
         .padding(13)

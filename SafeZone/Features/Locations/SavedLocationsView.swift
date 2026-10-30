@@ -41,7 +41,7 @@ struct SavedLocationsView: View {
                             showAddLocation = true
                         } label: {
                             Label("Add New Location", systemImage: "plus.circle.fill")
-                                .font(.system(size: 15, weight: .semibold))
+                                .font(.szScaled(15, weight: .semibold))
                                 .foregroundStyle(Theme.brandTeal)
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 15)
@@ -135,7 +135,7 @@ struct SavedLocationsView: View {
                     .font(.szHeadline(18))
                     .foregroundStyle(Theme.textPrimary)
                 Text("\(viewModel.locations.count) locations • \(viewModel.monitoredCount) monitoring alerts")
-                    .font(.system(size: 12))
+                    .font(.szScaled(12))
                     .foregroundStyle(Theme.textSecondary)
             }
             Spacer()
@@ -155,20 +155,20 @@ struct SavedLocationsView: View {
                         .font(.szHeadline(16))
                         .foregroundStyle(Theme.textPrimary)
                     Text("Alerts when you physically enter a risk zone")
-                        .font(.system(size: 12))
+                        .font(.szScaled(12))
                         .foregroundStyle(Theme.textSecondary)
                 }
                 Spacer()
                 VStack(alignment: .trailing, spacing: 2) {
                     Text("\(viewModel.monitoredCount)")
-                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                        .font(.szScaled(18, weight: .bold, design: .rounded))
                         .foregroundStyle(Theme.brandTeal)
                     Text("active")
-                        .font(.system(size: 10))
+                        .font(.szScaled(10))
                         .foregroundStyle(Theme.textTertiary)
                 }
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .bold))
+                    .font(.szScaled(12, weight: .bold))
                     .foregroundStyle(Theme.textTertiary)
             }
             .cardStyle(padding: 14)
@@ -208,10 +208,10 @@ struct SavedLocationsView: View {
                 )) {
                     HStack(spacing: 6) {
                         Image(systemName: "bell.badge.fill")
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(.szScaled(12, weight: .semibold))
                             .foregroundStyle(Theme.brandTeal)
                         Text("Alerts")
-                            .font(.system(size: 13, weight: .semibold))
+                            .font(.szScaled(13, weight: .semibold))
                             .foregroundStyle(Theme.textPrimary)
                     }
                 }
@@ -233,7 +233,7 @@ struct SavedLocationsView: View {
                     }
                 } label: {
                     Image(systemName: "ellipsis.circle.fill")
-                        .font(.system(size: 21))
+                        .font(.szScaled(21))
                         .foregroundStyle(Theme.textTertiary)
                 }
                 .accessibilityLabel("More options for \(location.name)")
@@ -258,17 +258,17 @@ struct SavedLocationsView: View {
                     }
                 }
                 Text(location.address)
-                    .font(.system(size: 12))
+                    .font(.szScaled(12))
                     .foregroundStyle(Theme.textSecondary)
                     .lineLimit(1)
                 HStack(spacing: 10) {
                     if let weather = summary?.weather {
                         Label("\(weather.temperatureDisplay) \(weather.conditionDescription)", systemImage: weather.condition.iconName)
-                            .font(.system(size: 11, weight: .medium))
+                            .font(.szScaled(11, weight: .medium))
                             .foregroundStyle(Theme.textSecondary)
                     }
                     Label(location.radiusDisplay, systemImage: "circle.dashed")
-                        .font(.system(size: 11, weight: .medium))
+                        .font(.szScaled(11, weight: .medium))
                         .foregroundStyle(Theme.textTertiary)
                 }
             }
@@ -276,7 +276,7 @@ struct SavedLocationsView: View {
             Spacer(minLength: 0)
 
             Image(systemName: "chevron.right")
-                .font(.system(size: 12, weight: .bold))
+                .font(.szScaled(12, weight: .bold))
                 .foregroundStyle(Theme.textTertiary)
                 .padding(.top, 6)
         }

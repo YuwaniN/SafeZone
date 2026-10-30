@@ -95,15 +95,44 @@ extension Color {
 
 extension Font {
     static func szTitle(_ size: CGFloat = 28) -> Font {
-        .system(size: size, weight: .bold, design: .rounded)
+        szScaled(size, weight: .bold, design: .rounded)
     }
 
     static func szHeadline(_ size: CGFloat = 18) -> Font {
-        .system(size: size, weight: .semibold, design: .rounded)
+        szScaled(size, weight: .semibold, design: .rounded)
     }
 
     static func szBody(_ size: CGFloat = 15) -> Font {
-        .system(size: size, weight: .regular, design: .default)
+        szScaled(size, weight: .regular, design: .default)
+    }
+
+    static func szScaled(
+        _ size: CGFloat,
+        weight: Font.Weight = .regular,
+        design: Font.Design = .default
+    ) -> Font {
+        let textStyle: UIFont.TextStyle
+        if size < 11.5 {
+            textStyle = .caption2
+        } else if size < 13 {
+            textStyle = .caption1
+        } else if size < 14.5 {
+            textStyle = .footnote
+        } else if size < 16.5 {
+            textStyle = .subheadline
+        } else if size < 19 {
+            textStyle = .body
+        } else if size < 23 {
+            textStyle = .title3
+        } else if size < 27 {
+            textStyle = .title2
+        } else if size < 33 {
+            textStyle = .title1
+        } else {
+            textStyle = .largeTitle
+        }
+        let scaled = UIFontMetrics(forTextStyle: textStyle).scaledValue(for: size)
+        return .system(size: min(scaled, size * 1.5), weight: weight, design: design)
     }
 }
 

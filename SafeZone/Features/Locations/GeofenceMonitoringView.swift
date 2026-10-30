@@ -58,7 +58,7 @@ struct GeofenceMonitoringView: View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
                 Text("Monitoring")
-                    .font(.system(size: 11, weight: .semibold))
+                    .font(.szScaled(11, weight: .semibold))
                     .textCase(.uppercase)
                     .foregroundStyle(Theme.textSecondary)
                 Text(selected.name)
@@ -78,9 +78,9 @@ struct GeofenceMonitoringView: View {
                 HStack(spacing: 6) {
                     Text("Change")
                     Image(systemName: "chevron.down")
-                        .font(.system(size: 10, weight: .bold))
+                        .font(.szScaled(10, weight: .bold))
                 }
-                .font(.system(size: 13, weight: .semibold))
+                .font(.szScaled(13, weight: .semibold))
                 .foregroundStyle(Theme.brandTeal)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
@@ -123,7 +123,7 @@ struct GeofenceMonitoringView: View {
                     .fill(selected.isMonitoring ? Theme.success : Theme.riskMedium)
                     .frame(width: 7, height: 7)
                 Text(selected.isMonitoring ? "MONITORING ACTIVE" : "MONITORING OFF")
-                    .font(.system(size: 10, weight: .bold, design: .rounded))
+                    .font(.szScaled(10, weight: .bold, design: .rounded))
             }
             .foregroundStyle(Theme.textPrimary)
             .padding(.horizontal, 10)
@@ -144,7 +144,7 @@ struct GeofenceMonitoringView: View {
                     Text(selected.name)
                         .font(.szHeadline(16))
                     Text(selected.address)
-                        .font(.system(size: 12))
+                        .font(.szScaled(12))
                         .foregroundStyle(Theme.textSecondary)
                         .lineLimit(1)
                 }
@@ -172,14 +172,14 @@ struct GeofenceMonitoringView: View {
                 Image(systemName: viewModel.isAlwaysAuthorized ? "checkmark.shield.fill" : "exclamationmark.shield.fill")
                     .foregroundStyle(viewModel.isAlwaysAuthorized ? Theme.success : Theme.riskMedium)
                 Text(viewModel.authorizationDescription)
-                    .font(.system(size: 12))
+                    .font(.szScaled(12))
                     .foregroundStyle(Theme.textSecondary)
                 Spacer()
                 if !viewModel.isAlwaysAuthorized {
                     Button("Enable") {
                         viewModel.requestAuthorization()
                     }
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.szScaled(12, weight: .semibold))
                     .foregroundStyle(Theme.brandTeal)
                 }
             }
@@ -195,14 +195,14 @@ struct GeofenceMonitoringView: View {
     private func statusItem(title: String, value: String, icon: String) -> some View {
         HStack(spacing: 8) {
             Image(systemName: icon)
-                .font(.system(size: 12, weight: .semibold))
+                .font(.szScaled(12, weight: .semibold))
                 .foregroundStyle(Theme.brandTeal)
             VStack(alignment: .leading, spacing: 1) {
                 Text(title)
-                    .font(.system(size: 10))
+                    .font(.szScaled(10))
                     .foregroundStyle(Theme.textTertiary)
                 Text(value)
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.szScaled(13, weight: .semibold))
                     .foregroundStyle(Theme.textPrimary)
             }
         }
@@ -217,7 +217,7 @@ struct GeofenceMonitoringView: View {
                 HStack(spacing: 10) {
                     IconCircle(icon: "bell.slash.fill", tint: Theme.textSecondary, size: 34)
                     Text("No geofence alerts yet. Use the simulator below to preview one.")
-                        .font(.system(size: 12))
+                        .font(.szScaled(12))
                         .foregroundStyle(Theme.textSecondary)
                     Spacer()
                 }
@@ -274,7 +274,7 @@ struct GeofenceMonitoringView: View {
             }
 
             Text("In production, iOS wakes SafeZone when you enter the region. The simulator lets you test the same alert pipeline without moving.")
-                .font(.system(size: 11))
+                .font(.szScaled(11))
                 .foregroundStyle(Theme.textTertiary)
                 .fixedSize(horizontal: false, vertical: true)
         }
@@ -287,10 +287,10 @@ struct GeofenceMonitoringView: View {
                 Image(systemName: "location.fill")
                 Image(systemName: "map.fill")
             }
-            .font(.system(size: 11))
+            .font(.szScaled(11))
             .foregroundStyle(Theme.textTertiary)
             Text("Powered by Core Location + MapKit")
-                .font(.system(size: 11, weight: .semibold))
+                .font(.szScaled(11, weight: .semibold))
                 .foregroundStyle(Theme.textTertiary)
         }
         .frame(maxWidth: .infinity)

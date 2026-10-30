@@ -55,14 +55,14 @@ struct GuideTopicView: View {
             VStack(alignment: .leading, spacing: 9) {
                 HStack {
                     Image(systemName: topic.iconName)
-                        .font(.system(size: 26, weight: .semibold))
+                        .font(.szScaled(26, weight: .semibold))
                         .foregroundStyle(.white)
                         .frame(width: 50, height: 50)
                         .background(Circle().fill(.white.opacity(0.18)))
                     Spacer()
                     if let badge = topic.badge {
                         Text(badge.uppercased())
-                            .font(.system(size: 10, weight: .bold, design: .rounded))
+                            .font(.szScaled(10, weight: .bold, design: .rounded))
                             .foregroundStyle(.white)
                             .padding(.horizontal, 9)
                             .padding(.vertical, 5)
@@ -75,7 +75,7 @@ struct GuideTopicView: View {
                     .foregroundStyle(.white)
 
                 Text(topic.subtitle)
-                    .font(.system(size: 13, weight: .medium))
+                    .font(.szScaled(13, weight: .medium))
                     .foregroundStyle(.white.opacity(0.85))
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -91,7 +91,7 @@ struct GuideTopicView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline, spacing: 9) {
                 Text(String(format: "%02d", index + 1))
-                    .font(.system(size: 11, weight: .bold, design: .rounded))
+                    .font(.szScaled(11, weight: .bold, design: .rounded))
                     .foregroundStyle(accent)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
@@ -114,12 +114,12 @@ struct GuideTopicView: View {
                     ForEach(Array(section.steps.enumerated()), id: \.offset) { stepIndex, step in
                         HStack(alignment: .top, spacing: 9) {
                             Text("\(stepIndex + 1)")
-                                .font(.system(size: 10, weight: .bold, design: .rounded))
+                                .font(.szScaled(10, weight: .bold, design: .rounded))
                                 .foregroundStyle(accent)
                                 .frame(width: 20, height: 20)
                                 .background(Circle().fill(accent.opacity(0.12)))
                             Text(step)
-                                .font(.system(size: 13))
+                                .font(.szScaled(13))
                                 .foregroundStyle(Theme.textPrimary)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .padding(.top, 1)
@@ -146,19 +146,19 @@ struct GuideTopicView: View {
                         IconCircle(icon: contact.iconName, tint: accent, size: 38)
                         VStack(alignment: .leading, spacing: 1) {
                             Text(contact.name)
-                                .font(.system(size: 13, weight: .semibold))
+                                .font(.szScaled(13, weight: .semibold))
                                 .foregroundStyle(Theme.textPrimary)
                             Text(contact.subtitle)
-                                .font(.system(size: 10))
+                                .font(.szScaled(10))
                                 .foregroundStyle(Theme.textSecondary)
                                 .lineLimit(1)
                         }
                         Spacer()
                         Text(contact.number)
-                            .font(.system(size: 14, weight: .bold, design: .rounded))
+                            .font(.szScaled(14, weight: .bold, design: .rounded))
                             .foregroundStyle(accent)
                         Image(systemName: "phone.fill")
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(.szScaled(12, weight: .semibold))
                             .foregroundStyle(accent)
                     }
                     .padding(.vertical, 7)
@@ -180,7 +180,7 @@ struct GuideTopicView: View {
             Image(systemName: "checkmark.circle.fill")
                 .foregroundStyle(Theme.success)
             Text("This guide is stored on your device and works offline.")
-                .font(.system(size: 11))
+                .font(.szScaled(11))
                 .foregroundStyle(Theme.textSecondary)
             Spacer(minLength: 0)
         }

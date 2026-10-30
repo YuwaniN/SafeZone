@@ -75,7 +75,7 @@ struct ProfileView: View {
                     .fill(Theme.aquaGradient)
                     .frame(width: 66, height: 66)
                 Text(profile.initials)
-                    .font(.system(size: 22, weight: .bold, design: .rounded))
+                    .font(.szScaled(22, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
             }
             .shadow(color: Theme.brandTeal.opacity(0.25), radius: 10, x: 0, y: 5)
@@ -85,7 +85,7 @@ struct ProfileView: View {
                     .font(.szTitle(22))
                     .foregroundStyle(Theme.textPrimary)
                 Text(profile.email)
-                    .font(.system(size: 12))
+                    .font(.szScaled(12))
                     .foregroundStyle(Theme.textSecondary)
                     .lineLimit(1)
                 HStack(spacing: 6) {
@@ -102,7 +102,7 @@ struct ProfileView: View {
                 EditProfileView(container: container, appState: appState)
             } label: {
                 Image(systemName: "pencil")
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.szScaled(14, weight: .semibold))
                     .foregroundStyle(Theme.brandTeal)
                     .frame(width: 36, height: 36)
                     .background(Circle().fill(Theme.brandTeal.opacity(0.1)))
@@ -127,14 +127,14 @@ struct ProfileView: View {
         VStack(spacing: 4) {
             HStack(spacing: 4) {
                 Image(systemName: icon)
-                    .font(.system(size: 11, weight: .semibold))
+                    .font(.szScaled(11, weight: .semibold))
                     .foregroundStyle(Theme.brandTeal)
                 Text(value)
-                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .font(.szScaled(20, weight: .bold, design: .rounded))
                     .foregroundStyle(Theme.textPrimary)
             }
             Text(label)
-                .font(.system(size: 10, weight: .medium))
+                .font(.szScaled(10, weight: .medium))
                 .foregroundStyle(Theme.textSecondary)
         }
         .frame(maxWidth: .infinity)
@@ -190,7 +190,7 @@ struct ProfileView: View {
                         }
                     } label: {
                         Image(systemName: "phone.fill")
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(.szScaled(12, weight: .semibold))
                             .foregroundStyle(Theme.success)
                             .frame(width: 32, height: 32)
                             .background(Circle().fill(Theme.success.opacity(0.12)))
@@ -302,7 +302,7 @@ struct ProfileView: View {
                         tint: Theme.riskHigh
                     ) {
                         Text(contact.number)
-                            .font(.system(size: 13, weight: .bold, design: .rounded))
+                            .font(.szScaled(13, weight: .bold, design: .rounded))
                             .foregroundStyle(Theme.riskHigh)
                     }
                 }
@@ -351,14 +351,14 @@ struct ProfileView: View {
     private var demoCard: some View {
         HStack(alignment: .top, spacing: 10) {
             Image(systemName: "sparkles")
-                .font(.system(size: 15, weight: .semibold))
+                .font(.szScaled(15, weight: .semibold))
                 .foregroundStyle(Theme.brandTeal)
             VStack(alignment: .leading, spacing: 3) {
                 Text("Demo Mode Active")
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.szScaled(13, weight: .semibold))
                     .foregroundStyle(Theme.textPrimary)
                 Text("Weather data is simulated to match the prototype. Add an OpenWeatherMap API key to use live conditions.")
-                    .font(.system(size: 11))
+                    .font(.szScaled(11))
                     .foregroundStyle(Theme.textSecondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -388,10 +388,10 @@ struct ProfileView: View {
     private var versionFooter: some View {
         VStack(spacing: 3) {
             Text("SafeZone • \(viewModel.appVersion)")
-                .font(.system(size: 10, weight: .medium))
+                .font(.szScaled(10, weight: .medium))
                 .foregroundStyle(Theme.textTertiary)
             Text("Disaster alerts and emergency response for Sri Lanka")
-                .font(.system(size: 10))
+                .font(.szScaled(10))
                 .foregroundStyle(Theme.textTertiary)
         }
         .frame(maxWidth: .infinity)
@@ -400,7 +400,7 @@ struct ProfileView: View {
 
     private var chevron: some View {
         Image(systemName: "chevron.right")
-            .font(.system(size: 11, weight: .semibold))
+            .font(.szScaled(11, weight: .semibold))
             .foregroundStyle(Theme.textTertiary)
     }
 
@@ -415,10 +415,10 @@ struct ProfileView: View {
             IconCircle(icon: icon, tint: tint, size: 38)
             VStack(alignment: .leading, spacing: 1) {
                 Text(title)
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.szScaled(13, weight: .semibold))
                     .foregroundStyle(Theme.textPrimary)
                 Text(subtitle)
-                    .font(.system(size: 10))
+                    .font(.szScaled(10))
                     .foregroundStyle(Theme.textSecondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -475,13 +475,14 @@ private struct ProfileRow<Trailing: View>: View {
             IconCircle(icon: icon, tint: tint, size: 38)
             VStack(alignment: .leading, spacing: 1) {
                 Text(title)
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.szScaled(13, weight: .semibold))
                     .foregroundStyle(Theme.textPrimary)
-                    .lineLimit(1)
+                    .lineLimit(2)
                 Text(subtitle)
-                    .font(.system(size: 10))
+                    .font(.szScaled(10))
                     .foregroundStyle(Theme.textSecondary)
-                    .lineLimit(1)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             Spacer(minLength: 6)
             trailing()

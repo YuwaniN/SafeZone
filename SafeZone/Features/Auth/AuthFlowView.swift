@@ -79,7 +79,7 @@ struct LoginView: View {
                     .frame(width: 82, height: 82)
                     .shadow(color: Theme.brandTeal.opacity(0.3), radius: 18, x: 0, y: 10)
                 Image(systemName: "shield.lefthalf.filled")
-                    .font(.system(size: 38, weight: .bold))
+                    .font(.szScaled(38, weight: .bold))
                     .foregroundStyle(.white)
             }
             .accessibilityHidden(true)
@@ -89,7 +89,7 @@ struct LoginView: View {
                     .font(.szTitle(30))
                     .foregroundStyle(Theme.textPrimary)
                 Text("Access real-time monitoring and emergency tools")
-                    .font(.system(size: 14))
+                    .font(.szScaled(14))
                     .foregroundStyle(Theme.textSecondary)
                     .multilineTextAlignment(.center)
             }
@@ -127,7 +127,7 @@ struct LoginView: View {
                     showPassword.toggle()
                 } label: {
                     Image(systemName: showPassword ? "eye.slash.fill" : "eye.fill")
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.szScaled(14, weight: .semibold))
                         .foregroundStyle(Theme.textSecondary)
                         .padding(.trailing, 14)
                 }
@@ -139,7 +139,7 @@ struct LoginView: View {
                 Button("Forgot Password?") {
                     path.append(.forgotPassword)
                 }
-                .font(.system(size: 13, weight: .semibold))
+                .font(.szScaled(13, weight: .semibold))
                 .foregroundStyle(Theme.brandTeal)
             }
 
@@ -176,14 +176,14 @@ struct LoginView: View {
                     password = AppConfig.demoPassword
                     errorMessage = nil
                 }
-                .font(.system(size: 13, weight: .semibold))
+                .font(.szScaled(13, weight: .semibold))
                 .foregroundStyle(Theme.brandTeal)
             }
             Text("\(AppConfig.demoEmail)  •  \(AppConfig.demoPassword)")
-                .font(.system(size: 12, design: .monospaced))
+                .font(.szScaled(12, design: .monospaced))
                 .foregroundStyle(Theme.textSecondary)
             Text("Includes saved Home and Work locations, community reports and geofence alerts.")
-                .font(.system(size: 11))
+                .font(.szScaled(11))
                 .foregroundStyle(Theme.textTertiary)
         }
         .padding(14)
@@ -222,7 +222,7 @@ struct LoginView: View {
             .foregroundStyle(Theme.brandTeal)
             .fontWeight(.semibold)
         }
-        .font(.system(size: 14))
+        .font(.szScaled(14))
     }
 
     private func signIn() async {
@@ -262,7 +262,7 @@ struct RegisterView: View {
                             .font(.szTitle(28))
                             .foregroundStyle(Theme.textPrimary)
                         Text("Sign up to receive localised disaster risk alerts and emergency guidance.")
-                            .font(.system(size: 14))
+                            .font(.szScaled(14))
                             .foregroundStyle(Theme.textSecondary)
                     }
 
@@ -295,7 +295,7 @@ struct RegisterView: View {
                                 showPassword.toggle()
                             } label: {
                                 Image(systemName: showPassword ? "eye.slash.fill" : "eye.fill")
-                                    .font(.system(size: 14, weight: .semibold))
+                                    .font(.szScaled(14, weight: .semibold))
                                     .foregroundStyle(Theme.textSecondary)
                                     .padding(.trailing, 14)
                             }
@@ -333,7 +333,7 @@ struct RegisterView: View {
                     }
 
                     Text("By creating an account you agree to use SafeZone as an indicative safety tool, not a replacement for official DMC warnings.")
-                        .font(.system(size: 11))
+                        .font(.szScaled(11))
                         .foregroundStyle(Theme.textTertiary)
                         .fixedSize(horizontal: false, vertical: true)
 
@@ -363,7 +363,7 @@ struct RegisterView: View {
                         .foregroundStyle(Theme.brandTeal)
                         .fontWeight(.semibold)
                     }
-                    .font(.system(size: 14))
+                    .font(.szScaled(14))
                     .frame(maxWidth: .infinity)
                 }
                 .frame(maxWidth: 480)
@@ -417,7 +417,7 @@ struct ForgotPasswordView: View {
                             .font(.szTitle(28))
                             .foregroundStyle(Theme.textPrimary)
                         Text("Enter your email address and we'll send you a link to reset your password.")
-                            .font(.system(size: 14))
+                            .font(.szScaled(14))
                             .foregroundStyle(Theme.textSecondary)
                     }
 
@@ -496,12 +496,12 @@ struct AuthField: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 7) {
             Text(title)
-                .font(.system(size: 12, weight: .semibold))
+                .font(.szScaled(12, weight: .semibold))
                 .foregroundStyle(Theme.textSecondary)
 
             HStack(spacing: 10) {
                 Image(systemName: icon)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.szScaled(14, weight: .semibold))
                     .foregroundStyle(Theme.brandTeal)
                     .frame(width: 20)
                     .accessibilityHidden(true)
@@ -517,7 +517,7 @@ struct AuthField: View {
                         .autocorrectionDisabled(keyboardType == .emailAddress)
                 }
             }
-            .font(.system(size: 15))
+            .font(.szScaled(15))
             .foregroundStyle(Theme.textPrimary)
             .padding(.horizontal, 14)
             .padding(.vertical, 14)
@@ -543,9 +543,9 @@ struct SocialProviderButton: View {
         Button(action: action) {
             HStack(spacing: 8) {
                 Image(systemName: systemImage)
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.szScaled(16, weight: .semibold))
                 Text(title)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.szScaled(14, weight: .semibold))
             }
             .foregroundStyle(Theme.textPrimary)
             .frame(maxWidth: .infinity)

@@ -47,7 +47,7 @@ struct SOSSheet: View {
                     )
                     .frame(width: 84, height: 84)
                 Text("SOS")
-                    .font(.system(size: 24, weight: .black, design: .rounded))
+                    .font(.szScaled(24, weight: .black, design: .rounded))
                     .foregroundStyle(.white)
             }
             .accessibilityHidden(true)
@@ -56,7 +56,7 @@ struct SOSSheet: View {
                 .font(.szTitle(24))
                 .foregroundStyle(Theme.textPrimary)
             Text("If life is in immediate danger, call 119. SafeZone hotlines connect you to Sri Lankan emergency services.")
-                .font(.system(size: 13))
+                .font(.szScaled(13))
                 .foregroundStyle(Theme.textSecondary)
                 .multilineTextAlignment(.center)
         }
@@ -76,7 +76,7 @@ struct SOSSheet: View {
                         Text(name)
                             .font(.szHeadline(15))
                         Text(phone)
-                            .font(.system(size: 13))
+                            .font(.szScaled(13))
                             .foregroundStyle(Theme.textSecondary)
                     }
                     Spacer()
@@ -84,7 +84,7 @@ struct SOSSheet: View {
                         call(phone)
                     } label: {
                         Image(systemName: "phone.fill")
-                            .font(.system(size: 15, weight: .bold))
+                            .font(.szScaled(15, weight: .bold))
                             .foregroundStyle(.white)
                             .frame(width: 40, height: 40)
                             .background(Circle().fill(Theme.riskLow))
@@ -109,18 +109,18 @@ struct SOSSheet: View {
                             IconCircle(icon: contact.iconName, tint: Theme.riskHigh, size: 36)
                             VStack(alignment: .leading, spacing: 1) {
                                 Text(contact.name)
-                                    .font(.system(size: 14, weight: .semibold))
+                                    .font(.szScaled(14, weight: .semibold))
                                     .foregroundStyle(Theme.textPrimary)
                                 Text(contact.subtitle)
-                                    .font(.system(size: 11))
+                                    .font(.szScaled(11))
                                     .foregroundStyle(Theme.textSecondary)
                             }
                             Spacer()
                             Text(contact.number)
-                                .font(.system(size: 15, weight: .bold, design: .rounded))
+                                .font(.szScaled(15, weight: .bold, design: .rounded))
                                 .foregroundStyle(Theme.riskHigh)
                             Image(systemName: "phone.fill")
-                                .font(.system(size: 11, weight: .bold))
+                                .font(.szScaled(11, weight: .bold))
                                 .foregroundStyle(Theme.riskHigh)
                         }
                         .padding(.vertical, 10)
@@ -160,7 +160,7 @@ struct SOSSheet: View {
 
     private var disclaimer: some View {
         Text("SafeZone is not an emergency dispatch service. Hotline numbers are provided for convenience and may change.")
-            .font(.system(size: 11))
+            .font(.szScaled(11))
             .foregroundStyle(Theme.textTertiary)
             .multilineTextAlignment(.center)
             .fixedSize(horizontal: false, vertical: true)

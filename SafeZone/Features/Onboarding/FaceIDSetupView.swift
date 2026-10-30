@@ -23,7 +23,7 @@ struct FaceIDSetupView: View {
                             .frame(width: 128, height: 128)
                             .shadow(color: Theme.brandTeal.opacity(0.35), radius: 28, x: 0, y: 14)
                         Image(systemName: availability.kind == .touchID ? "touchid" : "faceid")
-                            .font(.system(size: 56, weight: .light))
+                            .font(.szScaled(56, weight: .light))
                             .foregroundStyle(.white)
                     }
                     .accessibilityHidden(true)
@@ -34,7 +34,7 @@ struct FaceIDSetupView: View {
                             .foregroundStyle(Theme.textPrimary)
                             .multilineTextAlignment(.center)
                         Text("Quick and secure access to your SafeZone account for real-time risk alerts and DMC response tracking.")
-                            .font(.system(size: 15))
+                            .font(.szScaled(15))
                             .foregroundStyle(Theme.textSecondary)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 30)
@@ -78,7 +78,7 @@ struct FaceIDSetupView: View {
                     .buttonStyle(SecondaryButtonStyle())
 
                     Text("You can change this any time in Profile settings.")
-                        .font(.system(size: 12))
+                        .font(.szScaled(12))
                         .foregroundStyle(Theme.textTertiary)
                 }
                 .padding(.horizontal, 28)

@@ -93,7 +93,7 @@ struct ReportsView: View {
                     .font(.szTitle(26))
                     .foregroundStyle(Theme.textPrimary)
                 Text("\(viewModel.reports.count) reports • \(viewModel.verifiedCount) verified near you")
-                    .font(.system(size: 12))
+                    .font(.szScaled(12))
                     .foregroundStyle(Theme.textSecondary)
             }
             Spacer()
@@ -101,7 +101,7 @@ struct ReportsView: View {
                 showCreateReport = true
             } label: {
                 Image(systemName: "plus")
-                    .font(.system(size: 16, weight: .bold))
+                    .font(.szScaled(16, weight: .bold))
                     .foregroundStyle(.white)
                     .frame(width: 42, height: 42)
                     .background(Circle().fill(Theme.aquaGradient))
@@ -114,10 +114,10 @@ struct ReportsView: View {
     private var searchBar: some View {
         HStack(spacing: 8) {
             Image(systemName: "magnifyingglass")
-                .font(.system(size: 14, weight: .semibold))
+                .font(.szScaled(14, weight: .semibold))
                 .foregroundStyle(Theme.textSecondary)
             TextField("Search reports by title, road, or area", text: $viewModel.searchText)
-                .font(.system(size: 14))
+                .font(.szScaled(14))
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
             if !viewModel.searchText.isEmpty {
@@ -194,7 +194,7 @@ struct ReportCard: View {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                         .fill(report.category.color.opacity(0.12))
                     Image(systemName: report.category.iconName)
-                        .font(.system(size: 21, weight: .semibold))
+                        .font(.szScaled(21, weight: .semibold))
                         .foregroundStyle(report.category.color)
                 }
                 .frame(width: 64, height: 78)
@@ -219,7 +219,7 @@ struct ReportCard: View {
                     .multilineTextAlignment(.leading)
 
                 Text(report.address)
-                    .font(.system(size: 11))
+                    .font(.szScaled(11))
                     .foregroundStyle(Theme.textSecondary)
                     .lineLimit(1)
 
@@ -232,7 +232,7 @@ struct ReportCard: View {
                         Text("\(report.upvotes)")
                     }
                 }
-                .font(.system(size: 10, weight: .medium))
+                .font(.szScaled(10, weight: .medium))
                 .foregroundStyle(Theme.textTertiary)
             }
         }
